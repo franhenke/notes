@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { addContactFormFields } from '../assets/mocks/fields'
 import InputField from './InputField'
 
@@ -81,7 +81,12 @@ const AddContactForm = () => {
         </div>
         {isLoading && <p>image is loading...</p>}
       </>
-      <button className="button-add-contact">Add contact</button>
+      <div className="button-container">
+        <button className="contact-button-add">Add contact</button>
+        <div className="contact-button-cancel">
+          <Link to="/">Cancel</Link>
+        </div>
+      </div>
     </form>
   )
 }
