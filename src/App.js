@@ -1,6 +1,7 @@
 import React from 'react'
 import { GlobalProvider } from './assets/context/GlobalState'
 import { Route, Switch } from 'react-router-dom'
+import ContactList from './components/ContactList'
 
 function App() {
   return (
