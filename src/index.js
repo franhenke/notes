@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
-import './assets/scss/base.scss'
+import './scss/base.scss'
 
 ReactDOM.render(
   <React.StrictMode>
