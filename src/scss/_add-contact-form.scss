@@ -22,3 +22,10 @@ input {
   margin-top: 0.5rem;
   text-align: center;
 }
+
+.form-image-preview {
+  height: 100px;
+  width: 100px;
+  object-position: 50% 50%;
+  border: 0.5px solid rgba(25, 26, 41, 0.2);
+}

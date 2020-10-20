@@ -61,13 +61,7 @@ const fields = {
     text: 'Date of Birth',
     required: false,
   },
-  image: {
-    type: 'file',
-    name: 'image',
-    text: 'Upload an Image',
-    required: false,
-  },
-};
+}
 
 export const addContactFormFields = [
   fields.firstName,
@@ -77,5 +71,4 @@ export const addContactFormFields = [
   fields.postalCode,
   fields.state,
   fields.dob,
-  fields.image,
-];
+]
