@@ -3,12 +3,7 @@
   flex-direction: row;
 }
 
-.button-add-contact {
-  padding: 10px;
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
+.contact-button-add,
 .contact-button-delete,
 .contact-button-edit,
 .contact-button-update,
@@ -24,6 +19,16 @@
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 400;
+}
+
+.contact-button-add {
+  color: white;
+  background: $text-greenish;
+
+  &:hover {
+    color: white;
+    background: $text-active;
+  }
 }
 
 .contact-button-delete {
