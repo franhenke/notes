@@ -52,6 +52,7 @@ const AddContactForm = () => {
 
   return (
     <form className="form" onSubmit={onSubmit}>
+      <h2 className="form-header">Add a new contact</h2>
       {addContactFormFields.map((field) => (
         <InputField
           key={field.id}

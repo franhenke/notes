@@ -12,9 +12,7 @@ const Contact = ({ contact }) => {
       ) : (
         <img src={plusIcon} alt="" className="contact-photo" />
       )}
-      <h3>
-        id: <span className="contact-info">{contact.id}</span>
-      </h3>
+
       <h3>
         First Name: <span className="contact-info">{contact.firstName}</span>
       </h3>
@@ -25,11 +23,28 @@ const Contact = ({ contact }) => {
       <h3>
         Phone Number: <span className="contact-info">{contact.phone}</span>
       </h3>
-
-      <Link to={`/edit/${contact.id}`}>
-        <button onClick={() => editContact(contact.id)}>Edit Contact</button>
-      </Link>
-      <button onClick={() => removeContact(contact.id)}>Remove Contact</button>
+      <h3>
+        City: <span className="contact-info">{contact.city}</span>
+      </h3>
+      <h3>
+        Birthday: <span className="contact-info">{contact.birthday}</span>
+      </h3>
+      <div className="button-container">
+        <Link to={`/edit/${contact.id}`}>
+          <button
+            className="contact-button-edit"
+            onClick={() => editContact(contact.id)}
+          >
+            Edit Contact
+          </button>
+        </Link>
+        <button
+          className="contact-button-delete"
+          onClick={() => removeContact(contact.id)}
+        >
+          Remove Contact
+        </button>
+      </div>
     </div>
   )
 }
