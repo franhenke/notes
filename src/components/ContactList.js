@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import Contact from './Contact'
 import { GlobalContext } from '../assets/context/GlobalState'
+import { Link } from 'react-router-dom'
+import Contact from './Contact'
 
 const ContactList = () => {
   const { contacts } = useContext(GlobalContext)
@@ -12,6 +13,9 @@ const ContactList = () => {
       ) : (
         <div>No contacts, yet</div>
       )}
+      <Link className="link-to-form" to="/add">
+        Add a new Contact
+      </Link>
     </div>
   )
 }
