@@ -18,7 +18,6 @@ const AddContactForm = () => {
     const formDataCopy = { ...formData }
     formDataCopy[event.target.name] = event.target.value
     setFormData(formDataCopy)
-    console.log(formData)
   }
 
   async function uploadImage(event) {
@@ -39,7 +38,6 @@ const AddContactForm = () => {
     setIsLoading(false)
     formData.image = image.secure_url
     setFormData({ ...formData, [formData.image]: image })
-    console.log(formData)
   }
 
   const onSubmit = (e) => {
@@ -47,7 +45,6 @@ const AddContactForm = () => {
     addContact(formData)
     setImage(formData)
     history.push('/')
-    console.log(contacts)
   }
 
   return (
