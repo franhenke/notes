@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { Link } from 'react-router-dom'
 import Contact from './Contact'
+import ContactPicker from './ContactPicker'
 
 const ContactList = () => {
   const { contacts } = useContext(GlobalContext)
@@ -16,6 +17,8 @@ const ContactList = () => {
       <Link className="link-to-form" to="/add">
         Add a new Contact
       </Link>
+
+      <ContactPicker />
     </div>
   )
 }

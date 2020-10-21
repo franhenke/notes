@@ -22,9 +22,10 @@ const EditContactForm = (route) => {
   useEffect(() => {
     const contactId = currentUserId
     const selectedContact = contacts.find(
-      (emp) => emp.id === parseInt(contactId)
+      (person) => person.id === parseInt(contactId)
     )
     setSelectedContact(selectedContact)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const onSubmit = (e) => {

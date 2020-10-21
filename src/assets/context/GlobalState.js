@@ -1,5 +1,5 @@
-import React, { createContext, useReducer } from 'react';
-import AppReducer from './AppReducer';
+import React, { createContext, useReducer } from 'react'
+import AppReducer from './AppReducer'
 
 const initialState = {
   contacts: [
@@ -32,38 +32,38 @@ const initialState = {
         'https://res.cloudinary.com/frnsea/image/upload/v1603226163/oliver_n6mo28.jpg',
     },
   ],
-};
+}
 
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(AppReducer, initialState)
 
   function removeContact(id) {
     dispatch({
       type: 'REMOVE_CONTACT',
       payload: id,
-    });
+    })
   }
 
   function addContact(contacts) {
     dispatch({
       type: 'ADD_CONTACT',
       payload: contacts,
-    });
+    })
   }
 
   function addPhoto(contacts) {
     dispatch({
       type: 'ADD_PHOTO',
       payload: contacts,
-    });
+    })
   }
 
   function editContact(contacts) {
     dispatch({
       type: 'EDIT_CONTACT',
       payload: contacts,
-    });
+    })
   }
 
   return (
@@ -78,5 +78,5 @@ export const GlobalProvider = ({ children }) => {
     >
       {children}
     </GlobalContext.Provider>
-  );
-};
+  )
+}
