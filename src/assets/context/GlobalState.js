@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import AppReducer from './AppReducer'
 
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
       city: 'Boston',
       state: 'Massachusetts',
       birthday: '10.10.1988',
+      dates: [{ date: '10.11.2020' }],
       image:
         'https://res.cloudinary.com/frnsea/image/upload/v1603225955/Sarah_suhilg.jpg',
     },
@@ -30,13 +31,20 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/frnsea/image/upload/v1603226163/oliver_n6mo28.jpg',
+      dates: [{ date: '10.11.2020' }],
     },
   ],
 }
 
 export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState)
+  const [state, dispatch] = useReducer(AppReducer, initialState, () => {
+    const localData = localStorage.getItem('contacts')
+    return localData ? JSON.parse(localData) : initialState
+  })
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(state))
+  }, [state])
 
   function removeContact(id) {
     dispatch({
@@ -48,13 +56,6 @@ export const GlobalProvider = ({ children }) => {
   function addContact(contacts) {
     dispatch({
       type: 'ADD_CONTACT',
-      payload: contacts,
-    })
-  }
-
-  function addPhoto(contacts) {
-    dispatch({
-      type: 'ADD_PHOTO',
       payload: contacts,
     })
   }
@@ -72,7 +73,6 @@ export const GlobalProvider = ({ children }) => {
         contacts: state.contacts,
         removeContact,
         addContact,
-        addPhoto,
         editContact,
       }}
     >
