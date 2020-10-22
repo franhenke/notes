@@ -1,48 +1,44 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { useHistory, Link } from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
-import DateFnsUtils from '@date-io/date-fns'
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers'
+import 'date-fns'
+import TextField from '@material-ui/core/TextField'
+import moment from 'moment'
 import ContactPicker from './ContactPicker'
 
 const AddDateForm = () => {
   const { contacts, addContact } = useContext(GlobalContext)
-  const { notes, setNotes } = useContext({ date: '', time: '' })
-  const [selectedDate, setSelectedDate] = useState(moment().format('ll'))
+
+  const [selectedDate, setSelectedDate] = useState(new Date())
+  const [selectedTime, setSelectedTime] = useState(new Date())
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date)
+    setSelectedTime(date)
+  }
 
   return (
     <>
-      <ContactPicker />
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container justify="space-around">
-          <KeyboardDatePicker
-            margin="normal"
-            id="date-picker-dialog"
-            label="Date picker dialog"
-            format="MM/dd/yyyy"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-          <KeyboardTimePicker
-            margin="normal"
-            id="time-picker"
-            label="Time picker"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change time',
-            }}
-          />
-        </Grid>
-      </MuiPickersUtilsProvider>
+      <form className="form" noValidate>
+        <ContactPicker />
+        <TextField
+          id="datetime-local"
+          label="Next date"
+          type="datetime-local"
+          defaultValue="2020-05-24T10:30"
+          className="add-date-textfield"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          margin="normal"
+        />
+        <div className="button-container">
+          <button className="contact-button-update">Save date</button>
+          <div className="contact-button-cancel">
+            <Link to="/">Cancel</Link>
+          </div>
+        </div>
+      </form>
     </>
   )
 }

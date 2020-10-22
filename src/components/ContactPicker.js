@@ -33,7 +33,7 @@ export default function ContactPicker() {
       <div>
         <div {...getRootProps()}>
           <label className="add-contact-header" {...getInputLabelProps()}>
-            Customized hook
+            Who are you meeting with?
           </label>
           <div
             ref={setAnchorEl}
@@ -50,7 +50,6 @@ export default function ContactPicker() {
                 {...getTagProps({ index })}
               />
             ))}
-
             <input {...getInputProps()} />
           </div>
         </div>

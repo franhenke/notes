@@ -18,7 +18,9 @@ const ContactList = () => {
         Add a new Contact
       </Link>
 
-      <ContactPicker />
+      <Link className="link-to-form" to="/add-date">
+        Add a new Date
+      </Link>
     </div>
   )
 }
