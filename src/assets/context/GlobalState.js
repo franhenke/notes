@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from 'react'
-import { loadFromLocal, saveToLocal } from '../../hooks/localStorage'
+import { loadFromLocal, saveToLocal } from '../services/localStorage'
 import AppReducer from './AppReducer'
 
 const initialState = {
@@ -70,6 +70,13 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
+  function addDate(dates) {
+    dispatch({
+      type: 'ADD_DATE',
+      payload: dates,
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -78,6 +85,7 @@ export const GlobalProvider = ({ children }) => {
         removeContact,
         addContact,
         editContact,
+        addDate,
       }}
     >
       {children}

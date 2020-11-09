@@ -35,6 +35,20 @@ export default (state, action) => {
         contacts: updatedContacts,
       }
 
+    case 'ADD_DATE':
+      const dateId = Math.max.apply(
+        null,
+        state.dates.map((date) => date.id)
+      )
+      const newDate = {
+        ...action.payload,
+        id: dateId + 1,
+      }
+      return {
+        ...state,
+        dates: [...state.dates, newDate],
+      }
+
     default:
       return state
   }
