@@ -15,7 +15,7 @@ const initialState = {
       city: 'Boston',
       birthday: '10.10.1988',
       image:
-        'https://res.cloudinary.com/frnsea/image/upload/v1603225955/Sarah_suhilg.jpg',
+        'https://res.cloudinary.com/etournal/image/upload/v1604850231/arzmgbfm5u4pd0v6agfe.jpg',
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ const initialState = {
       state: 'New York',
       birthday: '03.09.1979',
       image:
-        'https://res.cloudinary.com/frnsea/image/upload/v1603226163/oliver_n6mo28.jpg',
+        'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
     },
   ],
   dates: [

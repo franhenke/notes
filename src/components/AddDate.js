@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, Link, useParams } from 'react-router-dom'
 import { GlobalContext } from '../assets/context/GlobalState'
 
 const AddDate = () => {
+  let history = useHistory()
   const { addDate } = useContext(GlobalContext)
   const [newValue, setNewValue] = useState({
     id: null,
@@ -18,16 +19,17 @@ const AddDate = () => {
       [event.target.name]: event.target.value,
     }))
   }
+
   const handleSubmit = () => {
     newValue.contactId = parseInt(contactID)
     addDate(newValue)
     setNewValue('')
+    history.push('/')
   }
 
   return (
-    <>
-      <h3>Add a date with </h3>
-      <form onSubmit={handleSubmit}>
+    <div className=".add-date_form-container">
+      <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
         <input
           type="date"
@@ -35,9 +37,12 @@ const AddDate = () => {
           value={newValue.date || ''}
           onChange={handleChange}
         />
-        <button>Add</button>
+        <button className="button-add">Add</button>
       </form>
-    </>
+      <div className="contact-button-cancel">
+        <Link to="/">Cancel</Link>
+      </div>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { Link } from 'react-router-dom'
 import plusIcon from '../assets/icons/plus-circle.svg'
+import editIcon from '../assets/icons/edit.svg'
 
 const Contact = ({ contact }) => {
   const { removeContact, editContact } = useContext(GlobalContext)
@@ -12,7 +13,11 @@ const Contact = ({ contact }) => {
       ) : (
         <img src={plusIcon} alt="" className="contact-photo" />
       )}
-
+      <Link to={`/edit/${contact.id}`}>
+        <button className="edit-icon" onClick={() => editContact(contact.id)}>
+          <img src={editIcon} alt="" />
+        </button>
+      </Link>
       <h3>
         First Name: <span className="contact-info">{contact.firstName}</span>
       </h3>
@@ -30,20 +35,15 @@ const Contact = ({ contact }) => {
         Birthday: <span className="contact-info">{contact.birthday}</span>
       </h3>
       <div className="button-container">
-        <Link to={`/edit/${contact.id}`}>
-          <button
-            className="contact-button-edit"
-            onClick={() => editContact(contact.id)}
-          >
-            Edit Contact
-          </button>
-        </Link>
         <button
           className="contact-button-delete"
           onClick={() => removeContact(contact.id)}
         >
           Remove Contact
         </button>
+        <Link className="button-add" to={`/add-date/${contact.id}`}>
+          Add new date
+        </Link>
       </div>
     </div>
   )

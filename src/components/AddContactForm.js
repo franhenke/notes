@@ -79,7 +79,7 @@ const AddContactForm = () => {
         {isLoading && <p>image is loading...</p>}
       </>
       <div className="button-container">
-        <button className="contact-button-add">Add contact</button>
+        <button className="button-add">Add contact</button>
         <div className="contact-button-cancel">
           <Link to="/">Cancel</Link>
         </div>

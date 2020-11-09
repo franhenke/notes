@@ -3,13 +3,13 @@
   flex-direction: row;
 }
 
-.contact-button-add,
+.button-add,
 .contact-button-delete,
 .contact-button-edit,
 .contact-button-update,
 .contact-button-cancel {
   width: 150px;
-  padding: 5px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   background: transparent;
   outline: none;
@@ -21,9 +21,9 @@
   font-weight: 400;
 }
 
-.contact-button-add {
+.button-add {
   color: white;
-  background: $text-greenish;
+  background: $dark-blue;
 
   &:hover {
     color: white;
