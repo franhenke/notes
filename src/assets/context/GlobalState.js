@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { useEffect, createContext, useReducer } from 'react'
+import { loadFromLocal, saveToLocal } from '../../hooks/localStorage'
 import AppReducer from './AppReducer'
 
 const initialState = {
@@ -12,9 +13,7 @@ const initialState = {
       addressLine: 'Boston Str. 123',
       postalCode: 'BO123AZ',
       city: 'Boston',
-      state: 'Massachusetts',
       birthday: '10.10.1988',
-      dates: [{ date: '10.11.2020' }],
       image:
         'https://res.cloudinary.com/frnsea/image/upload/v1603225955/Sarah_suhilg.jpg',
     },
@@ -31,19 +30,23 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/frnsea/image/upload/v1603226163/oliver_n6mo28.jpg',
-      dates: [{ date: '10.11.2020' }],
     },
+  ],
+  dates: [
+    { date: '10.10.2020', contactId: 2 },
+    { date: '15.11.2020', contactId: 1 },
   ],
 }
 
 export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState, () => {
-    const localData = localStorage.getItem('contacts')
-    return localData ? JSON.parse(localData) : initialState
-  })
+  const [state, dispatch] = useReducer(
+    AppReducer,
+    loadFromLocal('myContacts') || initialState
+  )
+
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(state))
+    saveToLocal('myContacts', state)
   }, [state])
 
   function removeContact(id) {
@@ -71,6 +74,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         contacts: state.contacts,
+        dates: state.dates,
         removeContact,
         addContact,
         editContact,

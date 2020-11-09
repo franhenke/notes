@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { useHistory, Link } from 'react-router-dom'
-import { addContactFormFields } from '../assets/mocks/fields'
+import { formSchema } from '../assets/mocks/fields'
 import InputField from './InputField'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
@@ -50,7 +50,7 @@ const AddContactForm = () => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <h2 className="form-header">Add a new contact</h2>
-      {addContactFormFields.map((field) => (
+      {formSchema.map((field) => (
         <InputField
           key={field.id}
           type={field.type}

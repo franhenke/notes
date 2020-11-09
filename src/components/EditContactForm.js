@@ -14,7 +14,7 @@ const EditContactForm = (route) => {
     postalCode: '',
     city: '',
     state: '',
-    dob: '',
+    birthday: '',
   })
 
   const currentUserId = route.match.params.id
@@ -31,6 +31,7 @@ const EditContactForm = (route) => {
   const onSubmit = (e) => {
     e.preventDefault()
     editContact(selectedContact)
+    console.log(contacts)
     history.push('/')
   }
 
@@ -156,14 +157,14 @@ const EditContactForm = (route) => {
 
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="dob"
+          htmlFor="birthday"
         >
           Birthday
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline"
-          value={selectedContact.dob}
-          onChange={(e) => handleOnChange('dob', e.target.value)}
+          value={selectedContact.birthday}
+          onChange={(e) => handleOnChange('birthday', e.target.value)}
           type="date"
           placeholder="Enter location"
         />
