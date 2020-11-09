@@ -6,35 +6,50 @@ export default (state, action) => {
         contacts: state.contacts.filter(
           (contact) => contact.id !== action.payload
         ),
-      };
+      }
     case 'ADD_CONTACT':
       const nextId = Math.max.apply(
         null,
         state.contacts.map((contact) => contact.id)
-      );
+      )
       const newContact = {
         ...action.payload,
         id: nextId + 1,
-      };
+      }
       return {
         ...state,
         contacts: [...state.contacts, newContact],
-      };
+      }
 
     case 'EDIT_CONTACT':
-      const updatedContact = action.payload;
+      const updatedContact = action.payload
       const updatedContacts = state.contacts.map((contact) => {
         if (contact.id === updatedContact.id) {
-          return updatedContact;
+          return updatedContact
         }
-        return contact;
-      });
+        return contact
+      })
 
       return {
         ...state,
         contacts: updatedContacts,
-      };
+      }
+
+    case 'ADD_DATE':
+      const dateId = Math.max.apply(
+        null,
+        state.dates.map((date) => date.id)
+      )
+      const newDate = {
+        ...action.payload,
+        id: dateId + 1,
+      }
+      return {
+        ...state,
+        dates: [...state.dates, newDate],
+      }
+
     default:
-      return state;
+      return state
   }
-};
+}

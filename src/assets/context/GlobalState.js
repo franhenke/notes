@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from 'react';
-import AppReducer from './AppReducer';
+import React, { useEffect, createContext, useReducer } from 'react'
+import { loadFromLocal, saveToLocal } from '../services/localStorage'
+import AppReducer from './AppReducer'
 
 const initialState = {
   contacts: [
@@ -12,10 +13,9 @@ const initialState = {
       addressLine: 'Boston Str. 123',
       postalCode: 'BO123AZ',
       city: 'Boston',
-      state: 'Massachusetts',
       birthday: '10.10.1988',
       image:
-        'https://res.cloudinary.com/frnsea/image/upload/v1603225955/Sarah_suhilg.jpg',
+        'https://res.cloudinary.com/etournal/image/upload/v1604850231/arzmgbfm5u4pd0v6agfe.jpg',
     },
     {
       id: 2,
@@ -29,54 +29,66 @@ const initialState = {
       state: 'New York',
       birthday: '03.09.1979',
       image:
-        'https://res.cloudinary.com/frnsea/image/upload/v1603226163/oliver_n6mo28.jpg',
+        'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
     },
   ],
-};
+  dates: [
+    { date: '10.10.2020', contactId: 2 },
+    { date: '15.11.2020', contactId: 1 },
+  ],
+}
 
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(
+    AppReducer,
+    loadFromLocal('myContacts') || initialState
+  )
+
+  useEffect(() => {
+    saveToLocal('myContacts', state)
+  }, [state])
 
   function removeContact(id) {
     dispatch({
       type: 'REMOVE_CONTACT',
       payload: id,
-    });
+    })
   }
 
   function addContact(contacts) {
     dispatch({
       type: 'ADD_CONTACT',
       payload: contacts,
-    });
-  }
-
-  function addPhoto(contacts) {
-    dispatch({
-      type: 'ADD_PHOTO',
-      payload: contacts,
-    });
+    })
   }
 
   function editContact(contacts) {
     dispatch({
       type: 'EDIT_CONTACT',
       payload: contacts,
-    });
+    })
+  }
+
+  function addDate(dates) {
+    dispatch({
+      type: 'ADD_DATE',
+      payload: dates,
+    })
   }
 
   return (
     <GlobalContext.Provider
       value={{
         contacts: state.contacts,
+        dates: state.dates,
         removeContact,
         addContact,
-        addPhoto,
         editContact,
+        addDate,
       }}
     >
       {children}
     </GlobalContext.Provider>
-  );
-};
+  )
+}

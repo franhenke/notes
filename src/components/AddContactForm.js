@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { useHistory, Link } from 'react-router-dom'
-import { addContactFormFields } from '../assets/mocks/fields'
+import { formSchema } from '../assets/mocks/fields'
 import InputField from './InputField'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
@@ -18,7 +18,6 @@ const AddContactForm = () => {
     const formDataCopy = { ...formData }
     formDataCopy[event.target.name] = event.target.value
     setFormData(formDataCopy)
-    console.log(formData)
   }
 
   async function uploadImage(event) {
@@ -39,7 +38,6 @@ const AddContactForm = () => {
     setIsLoading(false)
     formData.image = image.secure_url
     setFormData({ ...formData, [formData.image]: image })
-    console.log(formData)
   }
 
   const onSubmit = (e) => {
@@ -47,13 +45,12 @@ const AddContactForm = () => {
     addContact(formData)
     setImage(formData)
     history.push('/')
-    console.log(contacts)
   }
 
   return (
     <form className="form" onSubmit={onSubmit}>
       <h2 className="form-header">Add a new contact</h2>
-      {addContactFormFields.map((field) => (
+      {formSchema.map((field) => (
         <InputField
           key={field.id}
           type={field.type}
@@ -82,7 +79,7 @@ const AddContactForm = () => {
         {isLoading && <p>image is loading...</p>}
       </>
       <div className="button-container">
-        <button className="contact-button-add">Add contact</button>
+        <button className="button-add">Add contact</button>
         <div className="contact-button-cancel">
           <Link to="/">Cancel</Link>
         </div>

@@ -4,7 +4,7 @@ const fields = {
     name: 'firstName',
     text: 'First Name',
     placeholder: 'Jack',
-    required: false,
+    required: true,
   },
   lastName: {
     type: 'text',
@@ -48,27 +48,21 @@ const fields = {
     placeholder: 'Gothenburg',
     required: false,
   },
-  state: {
-    type: 'text',
-    name: 'state',
-    text: 'State',
-    placeholder: 'Gotaland',
-    required: false,
-  },
-  dob: {
+
+  birthday: {
     type: 'date',
-    name: 'dob',
+    name: 'birthday',
     text: 'Date of Birth',
     required: false,
   },
 }
 
-export const addContactFormFields = [
+export const formSchema = [
   fields.firstName,
   fields.lastName,
   fields.email,
   fields.addressLine,
   fields.postalCode,
-  fields.state,
-  fields.dob,
+  fields.city,
+  fields.birthday,
 ]
