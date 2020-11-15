@@ -5,6 +5,7 @@ import AddContactForm from './components/AddContactForm'
 import EditContactForm from './components/EditContactForm'
 import AddDate from './components/AddDate'
 import Home from './pages/home'
+import EditDateForm from './components/EditDateForm'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           path={'/add-date/:contactID'}
           component={() => <AddDate />}
         />
+        <Route path="/edit-date/:id" component={EditDateForm} exact />
       </Switch>
     </GlobalProvider>
   )

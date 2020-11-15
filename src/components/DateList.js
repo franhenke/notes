@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { GlobalContext } from '../assets/context/GlobalState'
 import EditDateForm from './EditDateForm'
+import editIcon from '../assets/icons/edit.svg'
 
 const DateList = () => {
-  const { contacts, dates, removeDate } = useContext(GlobalContext)
+  const { contacts, dates, editDate, removeDate } = useContext(GlobalContext)
 
   function contactName(date) {
     const contactRef = contacts.find((contact) => contact.id === date.contactId)
@@ -37,6 +38,11 @@ const DateList = () => {
               >
                 Remove Date
               </button>
+              <Link to={`/edit-date/${date.id}`}>
+                <button className="edit-icon" onClick={() => editDate(date.id)}>
+                  <img src={editIcon} alt="" />
+                </button>
+              </Link>
             </div>
           </>
         ))
