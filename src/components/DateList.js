@@ -20,35 +20,40 @@ const DateList = () => {
   }
 
   return (
-    <div className="contacts-container">
-      <h2>Your next dates</h2>
-      {dates.length > 0 ? (
-        dates.map((date) => (
-          <>
-            <li className="date_item" key={date.date}>
-              <h3>
-                {date.date} with
-                <span>{contactName(date)}</span>
-              </h3>
-            </li>
-            <div className="button-container">
-              <button
-                className="contact-button-delete"
-                onClick={() => removeDate(date.id)}
-              >
-                Remove Date
-              </button>
-              <Link to={`/edit-date/${date.id}`}>
-                <button className="edit-icon" onClick={() => editDate(date.id)}>
-                  <img src={editIcon} alt="" />
+    <div className="grid">
+      <div className="contacts-container">
+        <h2>Your next dates</h2>
+        {dates.length > 0 ? (
+          dates.map((date) => (
+            <>
+              <li className="date_item" key={date.date}>
+                <h3>
+                  {date.date} with
+                  <span>{contactName(date)}</span>
+                </h3>
+              </li>
+              <div className="button-container">
+                <button
+                  className="contact-button-delete"
+                  onClick={() => removeDate(date.id)}
+                >
+                  Remove Date
                 </button>
-              </Link>
-            </div>
-          </>
-        ))
-      ) : (
-        <div>No dates yet</div>
-      )}
+                <Link to={`/edit-date/${date.id}`}>
+                  <button
+                    className="edit-icon"
+                    onClick={() => editDate(date.id)}
+                  >
+                    <img src={editIcon} alt="" />
+                  </button>
+                </Link>
+              </div>
+            </>
+          ))
+        ) : (
+          <div>No dates yet</div>
+        )}
+      </div>
     </div>
   )
 }

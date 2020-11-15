@@ -27,8 +27,14 @@ li {
   text-decoration: none;
 }
 
-.container {
-  max-width: 1200px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+h1,
+h3 {
+  font-size: 1.2em;
 }
 
 h1,
@@ -45,4 +51,30 @@ h3 {
 
 a {
   color: $contrast-drk;
+}
+
+@media (min-width: 640px) {
+}
+
+// tablet portrait
+@media (min-width: 768px) {
+}
+
+// tablet landscape
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+// desktop
+@media (min-width: 1280px) {
+  body {
+    font-size: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { useHistory, Link } from 'react-router-dom'
+import * as ROUTES from './../assets/routes'
 import { formSchema } from '../assets/mocks/fields'
 import InputField from './InputField'
 
@@ -81,7 +82,7 @@ const AddContactForm = () => {
       <div className="button-container">
         <button className="button-add">Add contact</button>
         <div className="contact-button-cancel">
-          <Link to="/">Cancel</Link>
+          <Link to={ROUTES.HOME}>Cancel</Link>
         </div>
       </div>
     </form>

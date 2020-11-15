@@ -13,7 +13,7 @@ const Contact = ({ contact }) => {
       ) : (
         <img src={plusIcon} alt="" className="contact-photo" />
       )}
-      <Link to={`/edit/${contact.id}`}>
+      <Link to={`/home/contacts/edit/${contact.id}`}>
         <button className="edit-icon" onClick={() => editContact(contact.id)}>
           <img src={editIcon} alt="" />
         </button>
@@ -41,7 +41,7 @@ const Contact = ({ contact }) => {
         >
           Remove Contact
         </button>
-        <Link className="button-add" to={`/add-date/${contact.id}`}>
+        <Link className="button-add" to={`/home/dates/add-date/${contact.id}`}>
           Add new date
         </Link>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useHistory, Link, useParams } from 'react-router-dom'
+import * as ROUTES from './../assets/routes'
 import { GlobalContext } from '../assets/context/GlobalState'
 
 const AddDate = () => {
@@ -40,7 +41,7 @@ const AddDate = () => {
         <button className="button-add">Add</button>
       </form>
       <div className="contact-button-cancel">
-        <Link to="/">Cancel</Link>
+        <Link to={ROUTES.HOME}>Cancel</Link>
       </div>
     </div>
   )

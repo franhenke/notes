@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { Link } from 'react-router-dom'
+import * as ROUTES from './../assets/routes'
 import Contact from './Contact'
 
 const ContactList = () => {
@@ -15,11 +16,11 @@ const ContactList = () => {
       ) : (
         <div>No contacts, yet</div>
       )}
-      <Link className="link-to-form" to="/add">
+      <Link className="link-to-form" to={ROUTES.ADDCONTACT}>
         Add a new Contact
       </Link>
 
-      <Link className="link-to-form" to="/add-date">
+      <Link className="link-to-form" to={ROUTES.ADDDATE}>
         Add a new Date
       </Link>
     </div>
