@@ -6,12 +6,15 @@ import { GlobalContext } from '../assets/context/GlobalState'
 import EditDateForm from './EditDateForm'
 
 const DateList = () => {
-  const { contacts, dates } = useContext(GlobalContext)
+  const { contacts, dates, removeDate } = useContext(GlobalContext)
 
   function contactName(date) {
     const contactRef = contacts.find((contact) => contact.id === date.contactId)
     if (typeof contactRef != 'undefined') {
       return contactRef.firstName
+    }
+    if (typeof contactRef === 'undefined') {
+      removeDate(date.id)
     }
   }
 
@@ -27,6 +30,14 @@ const DateList = () => {
                 <span>{contactName(date)}</span>
               </h3>
             </li>
+            <div className="button-container">
+              <button
+                className="contact-button-delete"
+                onClick={() => removeDate(date.id)}
+              >
+                Remove Date
+              </button>
+            </div>
           </>
         ))
       ) : (
