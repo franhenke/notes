@@ -6,8 +6,6 @@
 @import './_dates';
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -16,7 +14,17 @@ html body {
     'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   margin: 0;
-  background-color: $background;
+  background-color: $bg-drk;
+}
+
+body,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .container {
@@ -28,7 +36,7 @@ h2,
 h3,
 h4 {
   margin-bottom: 0.5em;
-  color: $dark-blue;
+  color: $contrast-drk_main;
 }
 
 h3 {
@@ -36,6 +44,5 @@ h3 {
 }
 
 a {
-  text-decoration: none;
-  color: $text;
+  color: $contrast-drk;
 }

@@ -33,8 +33,8 @@ const initialState = {
     },
   ],
   dates: [
-    { date: '10.10.2020', contactId: 2 },
-    { date: '15.11.2020', contactId: 1 },
+    { id: 1, date: '10.10.2020', contactId: 2 },
+    { id: 2, date: '15.11.2020', contactId: 2 },
   ],
 }
 
@@ -77,6 +77,20 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
+  function editDate(dates) {
+    dispatch({
+      type: 'EDIT_DATE',
+      payload: dates,
+    })
+  }
+
+  function removeDate(id) {
+    dispatch({
+      type: 'REMOVE_DATE',
+      payload: id,
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -86,6 +100,8 @@ export const GlobalProvider = ({ children }) => {
         addContact,
         editContact,
         addDate,
+        editDate,
+        removeDate,
       }}
     >
       {children}

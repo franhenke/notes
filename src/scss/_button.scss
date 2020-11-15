@@ -8,13 +8,14 @@
 .contact-button-edit,
 .contact-button-update,
 .contact-button-cancel {
-  width: 150px;
-  padding: 5px 10px;
-  border-radius: 5px;
+  display: inline-block;
+  color: $contrast-drk;
+  border-radius: 10px;
   background: transparent;
-  outline: none;
-  border: 0.5px solid rgba(25, 26, 41, 0.1);
+  border: 1px solid $contrast-drk;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   text-align: center;
+  padding: 5px 16px;
   margin: 0.5em;
   cursor: pointer;
   font-size: 0.875rem;

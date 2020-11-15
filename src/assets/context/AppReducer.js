@@ -49,6 +49,26 @@ export default (state, action) => {
         dates: [...state.dates, newDate],
       }
 
+    case 'EDIT_DATE':
+      const updatedDate = action.payload
+      const updatedDates = state.dates.map((date) => {
+        if (date.id === updatedDate.id) {
+          return updatedDate
+        }
+        return date
+      })
+
+      return {
+        ...state,
+        dates: updatedDates,
+      }
+
+    case 'REMOVE_DATE':
+      return {
+        ...state,
+        dates: state.dates.filter((date) => date.id !== action.payload),
+      }
+
     default:
       return state
   }
