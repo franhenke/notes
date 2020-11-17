@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
-import Dialog from '@material-ui/core/Dialog'
-import DialogContent from '@material-ui/core/DialogContent'
-import { Link, useParams } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { GlobalContext } from '../assets/context/GlobalState'
-import EditDateForm from './EditDateForm'
 import editIcon from '../assets/icons/edit.svg'
 
 const DateList = () => {
   const { contacts, dates, editDate, removeDate } = useContext(GlobalContext)
-  const isLoading = !dates
-  const isEmpty = !dates.length
 
   function contactName(date) {
     const contactRef = contacts.find((contact) => contact.id === date.contactId)

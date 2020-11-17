@@ -5,7 +5,24 @@ import plusIcon from '../assets/icons/plus-circle.svg'
 import editIcon from '../assets/icons/edit.svg'
 
 const Contact = ({ contact }) => {
-  const { removeContact, editContact } = useContext(GlobalContext)
+  const { removeContact, editContact, dates, removeDate } = useContext(
+    GlobalContext
+  )
+
+  async function handleDelete() {
+    const relatedDate = dates.find((date) => date.contactId === contact.id)
+    try {
+      removeContact(contact.id)
+
+      if (relatedDate) {
+        removeDate(relatedDate.id)
+      }
+      console.log(relatedDate.id)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   return (
     <div className="contact-item">
       {contact.image ? (
@@ -37,7 +54,7 @@ const Contact = ({ contact }) => {
       <div className="button-container">
         <button
           className="contact-button-delete"
-          onClick={() => removeContact(contact.id)}
+          onClick={() => handleDelete(contact.id)}
         >
           Remove Contact
         </button>
