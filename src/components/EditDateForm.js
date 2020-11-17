@@ -11,10 +11,6 @@ const EditDateForm = () => {
   let history = useHistory()
   const { editDate } = useContext(GlobalContext)
 
-  useEffect(() => {
-    setEditedDate(selectedDate)
-  }, [selectedDate])
-
   const handleInputChange = (event) => {
     const { name, value } = event.target
     setEditedDate({ ...editedDate, [name]: value })
@@ -27,7 +23,7 @@ const EditDateForm = () => {
 
   return (
     <div className="journal-form-wrapper">
-      <button className="button-cancel" onClick={handleClose}>
+      <button className="button-cancel">
         <img src={cancelIcon} alt="cancel" />
       </button>
       <h2>Edit journal entry</h2>

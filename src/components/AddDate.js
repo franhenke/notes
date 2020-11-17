@@ -15,11 +15,13 @@ const AddDate = () => {
   const { contactID } = useParams()
 
   const handleChange = (event) => {
-    setNewValue((newValue) => ({
+    setNewValue({
       ...newValue,
       [event.target.name]: event.target.value,
-    }))
+    })
   }
+
+  console.log(newValue)
 
   const handleSubmit = () => {
     newValue.contactId = parseInt(contactID)
@@ -29,16 +31,19 @@ const AddDate = () => {
   }
 
   return (
-    <div className=".add-date_form-container">
+    <div className="add-date_form-container">
       <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
         <input
           type="date"
           name="date"
           value={newValue.date || ''}
+          setNewValue={newValue.date || ''}
           onChange={handleChange}
         />
-        <button className="button-add">Add</button>
+        <button type="submit" className="button-add">
+          Add
+        </button>
       </form>
       <div className="contact-button-cancel">
         <Link to={ROUTES.HOME}>Cancel</Link>

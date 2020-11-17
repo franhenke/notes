@@ -7,7 +7,7 @@ const SingleDate = ({ date, contactName }) => {
   const { editDate, removeDate } = useContext(GlobalContext)
   return (
     <div>
-      <li className="date_item" key={date.date}>
+      <li className="date_item">
         <h3>
           {date.date} with
           <span>{contactName(date)}</span>

@@ -15,9 +15,9 @@ function App() {
       <Switch>
         <Redirect exact from="/" to={ROUTES.HOME} />
         <Route path={ROUTES.HOME} component={Home} exact />
-        <Route path={ROUTES.CONTACTS} component={ContactsPage} exact />
         <Route path={ROUTES.ADDCONTACT} component={AddContactForm} exact />
         <Route path={ROUTES.EDITCONTACT} component={EditContactForm} exact />
+        <Route exact path={ROUTES.ADDDATE} component={() => <AddDate />} />
         <Route path={ROUTES.ADDDATE} component={AddDate} exact />
         <Route path={ROUTES.EDITDATE} component={EditDateForm} exact />
       </Switch>
