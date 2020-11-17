@@ -19,8 +19,8 @@ const DateList = () => {
         <h2>Your next dates</h2>
         {dates.length > 0 ? (
           dates.map((date) => (
-            <>
-              <li className="date_item" key={date.id}>
+            <div key={date.id}>
+              <li className="date_item">
                 <h3>
                   {date.date} with
                   <span>{contactName(date)}</span>
@@ -42,7 +42,7 @@ const DateList = () => {
                   </button>
                 </Link>
               </div>
-            </>
+            </div>
           ))
         ) : (
           <div>No dates yet</div>

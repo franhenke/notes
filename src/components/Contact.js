@@ -9,15 +9,15 @@ const Contact = ({ contact }) => {
     GlobalContext
   )
 
+  function handleRemoveDate(date) {
+    removeDate(date.id)
+  }
+
   async function handleDelete() {
-    const relatedDate = dates.find((date) => date.contactId === contact.id)
+    const relatedDate = dates.filter((date) => date.contactId === contact.id)
     try {
       removeContact(contact.id)
-
-      if (relatedDate) {
-        removeDate(relatedDate.id)
-      }
-      console.log(relatedDate.id)
+      relatedDate.forEach(handleRemoveDate)
     } catch (err) {
       console.error(err)
     }

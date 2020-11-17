@@ -21,9 +21,8 @@ const AddDate = () => {
     })
   }
 
-  console.log(newValue)
-
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     newValue.contactId = parseInt(contactID)
     addDate(newValue)
     setNewValue('')
@@ -38,7 +37,6 @@ const AddDate = () => {
           type="date"
           name="date"
           value={newValue.date || ''}
-          setNewValue={newValue.date || ''}
           onChange={handleChange}
         />
         <button type="submit" className="button-add">
