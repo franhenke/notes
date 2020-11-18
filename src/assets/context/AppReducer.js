@@ -36,10 +36,7 @@ export default (state, action) => {
       }
 
     case 'ADD_DATE':
-      const dateId = Math.max.apply(
-        null,
-        state.dates.map((date) => date.id)
-      )
+      const dateId = state.dates.length
       const newDate = {
         ...action.payload,
         id: dateId + 1,

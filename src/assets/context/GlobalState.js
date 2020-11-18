@@ -15,7 +15,7 @@ const initialState = {
       city: 'Boston',
       birthday: '10.10.1988',
       image:
-        'https://res.cloudinary.com/etournal/image/upload/v1604850231/arzmgbfm5u4pd0v6agfe.jpg',
+        'https://res.cloudinary.com/etournal/image/upload/v1603894952/d3iovtnx9olqzhjakunn.jpg',
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const initialState = {
       postalCode: 'NY 10011',
       city: 'New York City',
       state: 'New York',
-      birthday: '03.09.1979',
+      birthday: '04.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
     },
@@ -102,13 +102,7 @@ const initialState = {
         'https://res.cloudinary.com/etournal/image/upload/v1605452993/contacts/alex_n1omxw.jpg',
     },
   ],
-  dates: [
-    { id: 1, date: '10.10.2020', contactId: 2 },
-    { id: 2, date: '21.11.2020', contactId: 1 },
-    { id: 3, date: '21.11.2020', contactId: 4 },
-    { id: 4, date: '22.11.2020', contactId: 5 },
-    { id: 5, date: '18.11.2020', contactId: 3 },
-  ],
+  dates: [],
 }
 
 export const GlobalContext = createContext(initialState)
