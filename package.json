@@ -22,6 +22,7 @@
     "rsuite": "^4.8.4",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
+    "semantic-ui-react": "^2.0.1",
     "use-immer": "^0.4.1"
   },
   "scripts": {
