@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { GlobalContext } from '../assets/context/GlobalState'
-import editIcon from '../assets/icons/edit.svg'
+import SingleDateItem from './SingleDateItem'
 
 const DateList = () => {
-  const { contacts, dates, editDate, removeDate } = useContext(GlobalContext)
+  const { contacts, dates } = useContext(GlobalContext)
 
   function contactName(date) {
     const contactRef = contacts.find((contact) => contact.id === date.contactId)
@@ -13,36 +12,28 @@ const DateList = () => {
     } else return null
   }
 
+  dates.sort(function compare(a, b) {
+    const dateA = new Date(a.date)
+    const dateB = new Date(b.date)
+    return dateA - dateB
+  })
+
+  // const sortedDates = dates
+  //   .slice()
+  //   .sort((a, b) => b.date.format('YYYY/MM/DD') - a.date.format('YYYY/MM/DD'))
+  // console.log(sortedDates)
+
   return (
-    <div className="grid">
-      <div className="contacts-container">
+    <div className="grid ">
+      <div className="dates-container">
         <h2>Your next dates</h2>
         {dates.length > 0 ? (
           dates.map((date) => (
-            <div key={date.id}>
-              <li className="date_item">
-                <h3>
-                  {date.date} with
-                  <span>{contactName(date)}</span>
-                </h3>
-              </li>
-              <div className="button-container">
-                <button
-                  className="contact-button-delete"
-                  onClick={() => removeDate(date.id)}
-                >
-                  Remove Date
-                </button>
-                <Link to={`/edit-date/${date.id}`}>
-                  <button
-                    className="edit-icon"
-                    onClick={() => editDate(date.id)}
-                  >
-                    <img src={editIcon} alt="" />
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <SingleDateItem
+              key={date.id}
+              date={date}
+              contactName={contactName}
+            />
           ))
         ) : (
           <div>No dates yet</div>
