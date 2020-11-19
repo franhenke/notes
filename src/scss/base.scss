@@ -1,7 +1,9 @@
 @import './_variables';
+@import './_grid';
 @import './_contacts';
 @import './_contact-form';
 @import './_button';
+@import './_ui-components';
 @import './_add-date';
 @import './_dates';
 
@@ -27,11 +29,6 @@ li {
   text-decoration: none;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-}
-
 h1,
 h3 {
   font-size: 1.2em;
@@ -51,30 +48,4 @@ h3 {
 
 a {
   color: $contrast-drk;
-}
-
-@media (min-width: 640px) {
-}
-
-// tablet portrait
-@media (min-width: 768px) {
-}
-
-// tablet landscape
-@media (min-width: 1024px) {
-  body {
-    font-size: 18px;
-  }
-}
-
-// desktop
-@media (min-width: 1280px) {
-  body {
-    font-size: 20px;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-  }
 }

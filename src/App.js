@@ -7,7 +7,6 @@ import EditContactForm from './components/EditContactForm'
 import AddDate from './components/AddDate'
 import Home from './pages/home'
 import EditDateForm from './components/EditDateForm'
-import ContactsPage from './pages/contactsPage'
 
 function App() {
   return (

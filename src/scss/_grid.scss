@@ -1,0 +1,35 @@
+// mobile
+.grid {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(5, 20vmin);
+  grid-template-rows: 1fr 1fr 3fr 2fr 1fr;
+}
+
+// small tablet
+@media screen and (min-width: 620px) {
+}
+
+// tablet portrait
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, minmax(1fr, 300px));
+  }
+}

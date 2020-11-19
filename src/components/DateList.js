@@ -5,23 +5,18 @@ import SingleDateItem from './SingleDateItem'
 const DateList = () => {
   const { contacts, dates } = useContext(GlobalContext)
 
-  function contactName(date) {
-    const contactRef = contacts.find((contact) => contact.id === date.contactId)
-    if (typeof contactRef != 'undefined') {
-      return contactRef.firstName
-    } else return null
-  }
-
   dates.sort(function compare(a, b) {
     const dateA = new Date(a.date)
     const dateB = new Date(b.date)
     return dateA - dateB
   })
 
-  // const sortedDates = dates
-  //   .slice()
-  //   .sort((a, b) => b.date.format('YYYY/MM/DD') - a.date.format('YYYY/MM/DD'))
-  // console.log(sortedDates)
+  function contactName(date) {
+    const contactRef = contacts.find((contact) => contact.id === date.contactId)
+    if (typeof contactRef != 'undefined') {
+      return contactRef.firstName
+    } else return null
+  }
 
   return (
     <div className="grid ">
