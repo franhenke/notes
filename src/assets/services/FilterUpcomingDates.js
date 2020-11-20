@@ -1,7 +1,10 @@
 export function getDatesOfNext4Days(dates) {
   const currentDate = new Date()
   const currentDateTime = currentDate.getTime()
-  const next4Days = new Date(currentDate.setDate(currentDate.getDate() + 4))
+  const currentDateCopy = new Date(currentDateTime)
+  const in4DaysDate = new Date(
+    currentDateCopy.setDate(currentDateCopy.getDate() + 4)
+  )
 
   const datesNext4DaysSorted = dates
     .filter((date) => {
@@ -9,7 +12,7 @@ export function getDatesOfNext4Days(dates) {
       if (itemDateTime <= currentDateTime) {
         return true
       }
-      if (itemDateTime <= next4Days) {
+      if (itemDateTime <= in4DaysDate) {
         return true
       }
       return false
@@ -20,27 +23,4 @@ export function getDatesOfNext4Days(dates) {
       return dateA - dateB
     })
   return datesNext4DaysSorted
-}
-
-export function getTodaysDate(dates) {
-  const today = new Date()
-  const todayFormatted = today.toLocaleDateString()
-
-  const showTodaysDates = dates
-    .filter((date) => {
-      const dateOfEncounter = new Date(date.when).getTime()
-      if (dateOfEncounter === currentDayTime) {
-        return true
-      }
-      if (dateOfEncounter === thisDay) {
-        return true
-      }
-      return false
-    })
-    .sort((a, b) => {
-      const dateA = new Date(a.date)
-      const dateB = new Date(b.date)
-      return dateA - dateB
-    })
-  return showTodaysDates
 }

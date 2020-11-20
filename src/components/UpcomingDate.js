@@ -14,16 +14,29 @@ dayjs.extend(calendar)
 
 const UpcomingDate = ({ date, contactName }) => {
   const { editDate, removeDate } = useContext(GlobalContext)
+
   const parsedDate = dayjs(date.when)
   const formattedDate = dayjs(parsedDate).format('dddd, MMM DD [at] LT')
+  const todaysDateFormatted = dayjs(new Date()).format('LL')
 
   return (
     <div>
-      <li className="date_item">
-        <h3>
-          {formattedDate} with <span>{contactName(date)}</span>
-        </h3>
-      </li>
+      {dayjs(date.when).format('LL') === todaysDateFormatted ? (
+        <>
+          <h3>Todays Date:</h3>
+          <h3>
+            {' '}
+            {formattedDate} with <span>{contactName(date)}</span>
+          </h3>
+        </>
+      ) : (
+        <li className="date_item">
+          <h3>
+            {formattedDate} with <span>{contactName(date)}</span>
+          </h3>
+        </li>
+      )}{' '}
+      )
       <div className="button-container">
         <button
           className="contact-button-delete"
