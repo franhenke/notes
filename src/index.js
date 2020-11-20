@@ -4,6 +4,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './scss/base.scss'
+import 'react-datetime/css/react-datetime.css'
 
 ReactDOM.render(
   <React.StrictMode>

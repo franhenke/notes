@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
+
 import SingleDateItem from './SingleDateItem'
 
 const DateList = () => {

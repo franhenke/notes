@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import calendar from 'dayjs/plugin/calendar'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+
 import { GlobalContext } from '../assets/context/GlobalState'
 import editIcon from '../assets/icons/edit.svg'
 
@@ -13,18 +14,14 @@ dayjs.extend(calendar)
 
 const UpcomingDate = ({ date, contactName }) => {
   const { editDate, removeDate } = useContext(GlobalContext)
-  const parsedDate = dayjs(date.date)
-  const todaysDate = dayjs(date.date).calendar(null, {
-    sameDay: '[Today at] h:mm A',
-  })
+  const parsedDate = dayjs(date.when)
+  const formattedDate = dayjs(parsedDate).format('dddd, MMM DD [at] LT')
 
   return (
     <div>
       <li className="date_item">
         <h3>
-          {new Date() ? todaysDate : parsedDate.locale('en').format('LLLL')}{' '}
-          with
-          <span>{contactName(date)}</span>
+          {formattedDate} with <span>{contactName(date)}</span>
         </h3>
       </li>
       <div className="button-container">

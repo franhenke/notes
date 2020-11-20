@@ -1,6 +1,8 @@
 import React from 'react'
 import { GlobalProvider } from './assets/context/GlobalState'
 import { Redirect, Switch, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+
 import * as ROUTES from './assets/routes'
 import AddContactForm from './components/AddContactForm'
 import EditContactForm from './components/EditContactForm'
@@ -20,6 +22,13 @@ function App() {
         <Route path={ROUTES.ADDDATE} component={AddDate} exact />
         <Route path={ROUTES.EDITDATE} component={EditDateForm} exact />
       </Switch>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar
+        closeOnClick
+        rtl={false}
+      />
     </GlobalProvider>
   )
 }

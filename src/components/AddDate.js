@@ -2,31 +2,18 @@ import React, { useState, useContext } from 'react'
 import { useHistory, Link, useParams } from 'react-router-dom'
 import * as ROUTES from './../assets/routes'
 import { GlobalContext } from '../assets/context/GlobalState'
+import useForm from '../hooks/useForm'
 
 const AddDate = () => {
-  let history = useHistory()
   const { addDate } = useContext(GlobalContext)
-  const [newValue, setNewValue] = useState({
-    id: null,
-    date: new Date(),
-    contactId: null,
-  })
-
+  const [values, handleChange, handleSubmit] = useForm(handleAddDate)
   const { contactID } = useParams()
 
-  const handleChange = (event) => {
-    setNewValue({
-      ...newValue,
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    newValue.contactId = parseInt(contactID)
-    addDate(newValue)
-    setNewValue('')
-    history.push('/')
+  function handleAddDate(values) {
+    values.contactId = parseInt(contactID)
+    addDate(values)
+    console.log(values)
+    return values
   }
 
   return (
@@ -34,9 +21,16 @@ const AddDate = () => {
       <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
         <input
-          type="date"
-          name="date"
-          value={newValue.date || ''}
+          type="datetime-local"
+          name="when"
+          value={values.when || ''}
+          onChange={handleChange}
+        />
+        <label htmlFor="where">Where</label>
+        <input
+          type="text"
+          name="where"
+          value={values.where || ''}
           onChange={handleChange}
         />
         <button type="submit" className="button-add">
