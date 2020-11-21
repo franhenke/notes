@@ -52,3 +52,21 @@
   width: 100%;
   text-align: center;
 }
+
+.favorite_contact-carousel {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8em;
+
+  img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50px;
+  }
+
+  p {
+    font-size: 0.8em;
+    text-align: center;
+  }
+}

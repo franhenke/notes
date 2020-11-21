@@ -64,13 +64,12 @@ const UpcomingDate = ({ date, contactName, contactImage }) => {
           </li>
         </>
       )}
-      <div className="button-container">
-        <Link to={`/edit-date/${date.id}`}>
+
+      {/* <Link to={`/edit-date/${date.id}`}>
           <button className="edit-icon" onClick={() => editDate(date.id)}>
             <img src={editIcon} alt="" />
           </button>
-        </Link>
-      </div>
+        </Link> */}
     </div>
   )
 }

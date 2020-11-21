@@ -2,9 +2,8 @@
 .grid {
   display: grid;
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
   justify-content: center;
-
   grid-template-columns: 0.5fr repeat(6, 1fr) 0.5fr;
 }
 
