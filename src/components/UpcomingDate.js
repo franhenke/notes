@@ -16,23 +16,23 @@ const UpcomingDate = ({ date, contactName }) => {
   const { editDate, removeDate } = useContext(GlobalContext)
 
   const parsedDate = dayjs(date.when)
-  const formattedDate = dayjs(parsedDate).format('dddd, MMM DD [at] LT')
+  const formattedDate = dayjs(parsedDate).format('dddd, MMM DD')
   const todaysDateFormatted = dayjs(new Date()).format('LL')
 
   return (
     <div>
       {dayjs(date.when).format('LL') === todaysDateFormatted ? (
         <>
-          <h3>Todays Date:</h3>
+          <h3>Today</h3>
           <h3>
             {' '}
-            {formattedDate} with <span>{contactName(date)}</span>
+            {formattedDate} at {date.time} with <span>{contactName(date)}</span>
           </h3>
         </>
       ) : (
         <li className="date_item">
           <h3>
-            {formattedDate} with <span>{contactName(date)}</span>
+            {formattedDate} at {date.time} with <span>{contactName(date)}</span>
           </h3>
         </li>
       )}{' '}

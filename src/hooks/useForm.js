@@ -16,6 +16,7 @@ export default function useForm(submitCallback) {
       ...inputs,
       [event.target.name]: event.target.value,
     }))
+    console.log(inputs)
   }
 
   const Msg = () => (

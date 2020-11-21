@@ -20,10 +20,22 @@ const AddDate = () => {
     <div className="add-date_form-container">
       <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
-        <input
+        {/* <input
           type="datetime-local"
           name="when"
           value={values.when || ''}
+          onChange={handleChange}
+        /> */}
+        <input
+          type="date"
+          name="when"
+          value={values.when || ''}
+          onChange={handleChange}
+        />
+        <input
+          type="time"
+          name="time"
+          value={values.time || ''}
           onChange={handleChange}
         />
         <label htmlFor="where">Where</label>

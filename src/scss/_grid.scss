@@ -4,9 +4,8 @@
   width: 100vw;
   height: 100vh;
   justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(5, 20vmin);
-  grid-template-rows: 1fr 1fr 3fr 2fr 1fr;
+
+  grid-template-columns: 0.5fr repeat(6, 1fr) 0.5fr;
 }
 
 // small tablet
@@ -28,8 +27,6 @@
   }
 
   .grid {
-    display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(3, minmax(1fr, 300px));
   }
 }
