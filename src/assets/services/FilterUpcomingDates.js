@@ -22,5 +22,6 @@ export function getDatesOfNext4Days(dates) {
       const dateB = new Date(b.when)
       return dateA - dateB
     })
+
   return datesNext4DaysSorted
 }

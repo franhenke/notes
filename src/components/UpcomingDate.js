@@ -19,43 +19,52 @@ const UpcomingDate = ({ date, contactName, contactImage }) => {
   const formattedDate = dayjs(parsedDate).format('dddd, MMM DD')
   const todaysDateFormatted = dayjs(new Date()).format('LL')
 
+  const now = new Date(date.when) - new Date()
+  console.log(now)
+
   return (
     <div>
       {dayjs(date.when).format('LL') === todaysDateFormatted ? (
-        <>
+        <div className="date_item-today">
           <h3>Today</h3>
-          <li className="date_item">
+          <Link to="/" className="date_item">
             <img src={contactImage(date)} alt="" />
             <div className="date_item-info">
-              <p>{formattedDate}</p>
-              <p>
-                {date.time} with <span>{contactName(date)}</span>
-              </p>
-            </div>
-          </li>
-        </>
-      ) : (
-        <>
-          <h3>This week</h3>
-          <li className="date_item">
-            <img src={contactImage(date)} alt="" />
-            <div className="date_item-info">
-              <p>{formattedDate}</p>
-              <p>
+              <p className="date_item-date">{formattedDate}</p>
+              <p className="date_item-occasion">
                 {date.time}, {date.occasion} with{' '}
                 <span>{contactName(date)}</span>
               </p>
+              <button
+                className="contact-button-delete"
+                onClick={() => removeDate(date.id)}
+              >
+                Remove Date
+              </button>
+            </div>
+          </Link>
+        </div>
+      ) : (
+        <>
+          <li className="date_item">
+            <img src={contactImage(date)} alt="" />
+            <div className="date_item-info">
+              <p className="date_item-date">{formattedDate}</p>
+              <p className="date_item-occasion">
+                {date.time}, {date.occasion} with{' '}
+                <span>{contactName(date)}</span>
+              </p>
+              <button
+                className="contact-button-delete"
+                onClick={() => removeDate(date.id)}
+              >
+                Remove Date
+              </button>
             </div>
           </li>
         </>
       )}
       <div className="button-container">
-        <button
-          className="contact-button-delete"
-          onClick={() => removeDate(date.id)}
-        >
-          Remove Date
-        </button>
         <Link to={`/edit-date/${date.id}`}>
           <button className="edit-icon" onClick={() => editDate(date.id)}>
             <img src={editIcon} alt="" />

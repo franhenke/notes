@@ -16,6 +16,7 @@ const initialState = {
       birthday: '10.10.1988',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1603894952/d3iovtnx9olqzhjakunn.jpg',
+      favorite: true,
     },
     {
       id: 2,
@@ -30,6 +31,7 @@ const initialState = {
       birthday: '04.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
+      favorite: true,
     },
     {
       id: 3,
@@ -44,6 +46,7 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1605452991/contacts/kate_kvnchn.jpg',
+      favorite: false,
     },
     {
       id: 4,
@@ -58,6 +61,7 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1605452992/contacts/tamarcus_gwfom6.jpg',
+      favorite: false,
     },
     {
       id: 5,
@@ -72,6 +76,7 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
+      favorite: true,
     },
     {
       id: 6,
@@ -86,6 +91,7 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1605452992/contacts/jacq_yyzd3p.jpg',
+      favorite: true,
     },
     {
       id: 7,
@@ -100,6 +106,7 @@ const initialState = {
       birthday: '03.09.1979',
       image:
         'https://res.cloudinary.com/etournal/image/upload/v1605452993/contacts/alex_n1omxw.jpg',
+      favorite: true,
     },
   ],
   dates: [],

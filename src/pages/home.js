@@ -7,12 +7,12 @@ import Header from '../components/Header'
 
 export const Home = () => {
   const { dates } = useContext(GlobalContext)
-  const datesNext4Days = getDatesOfNext4Days(dates)
+  const sortedUpcomingDates = getDatesOfNext4Days(dates)
 
   return (
     <div>
       <Header />
-      <UpcomingDatesList upcomingDates={datesNext4Days} />
+      <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} />
       <ContactList />
     </div>
   )

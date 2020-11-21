@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import UpcomingDate from './UpcomingDate'
 
-const UpcomingDatesList = ({ sortedDates }) => {
+const UpcomingDatesList = ({ sortedUpcomingDates }) => {
   const { contacts } = useContext(GlobalContext)
 
   function contactName(date) {
@@ -15,12 +15,16 @@ const UpcomingDatesList = ({ sortedDates }) => {
     return contactRef.image
   }
 
+  sortedUpcomingDates = sortedUpcomingDates.filter(
+    (a) => new Date(a.when) - new Date() > 0
+  )
+
   return (
     <div className="grid ">
       <div className="dates-container">
         <h2>Upcoming Dates</h2>
-        {sortedDates.length > 0 ? (
-          sortedDates.map((date) => (
+        {sortedUpcomingDates.length > 0 ? (
+          sortedUpcomingDates.map((date) => (
             <UpcomingDate
               key={date.id}
               date={date}
