@@ -33,12 +33,12 @@ const AddDate = () => {
           value={values.time || ''}
           onChange={handleChange}
         />
-        <label htmlFor="where">Caption</label>
+        <label htmlFor="where">Occasion</label>
         <input
           type="text"
-          name="what"
+          name="occasion"
           placeholder="e.g. Lunch, Dinner etc"
-          value={values.what || ''}
+          value={values.occasion || ''}
           onChange={handleChange}
           required
         />

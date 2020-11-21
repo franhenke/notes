@@ -12,7 +12,7 @@ dayjs.extend(advancedFormat)
 dayjs.extend(localizedFormat)
 dayjs.extend(calendar)
 
-const UpcomingDate = ({ date, contactName }) => {
+const UpcomingDate = ({ date, contactName, contactImage }) => {
   const { editDate, removeDate } = useContext(GlobalContext)
 
   const parsedDate = dayjs(date.when)
@@ -24,19 +24,31 @@ const UpcomingDate = ({ date, contactName }) => {
       {dayjs(date.when).format('LL') === todaysDateFormatted ? (
         <>
           <h3>Today</h3>
-          <h3>
-            {' '}
-            {formattedDate} at {date.time} with <span>{contactName(date)}</span>
-          </h3>
+          <li className="date_item">
+            <img src={contactImage(date)} alt="" />
+            <div className="date_item-info">
+              <p>{formattedDate}</p>
+              <p>
+                {date.time} with <span>{contactName(date)}</span>
+              </p>
+            </div>
+          </li>
         </>
       ) : (
-        <li className="date_item">
-          <h3>
-            {formattedDate} at {date.time} with <span>{contactName(date)}</span>
-          </h3>
-        </li>
-      )}{' '}
-      )
+        <>
+          <h3>This week</h3>
+          <li className="date_item">
+            <img src={contactImage(date)} alt="" />
+            <div className="date_item-info">
+              <p>{formattedDate}</p>
+              <p>
+                {date.time}, {date.occasion} with{' '}
+                <span>{contactName(date)}</span>
+              </p>
+            </div>
+          </li>
+        </>
+      )}
       <div className="button-container">
         <button
           className="contact-button-delete"
