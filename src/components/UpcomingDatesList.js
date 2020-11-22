@@ -16,11 +16,11 @@ const UpcomingDatesList = ({ sortedUpcomingDates }) => {
   }
 
   sortedUpcomingDates = sortedUpcomingDates.filter(
-    (a) => new Date(a.when) - new Date() > 0
+    (a) => new Date(a.when) - new Date() > -63200000
   )
 
   return (
-    <div className="grid ">
+    <div className="grid">
       <div className="dates-container">
         <h2>Upcoming Dates</h2>
         {sortedUpcomingDates.length > 0 ? (

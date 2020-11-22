@@ -38,27 +38,41 @@ const ContactDetails = () => {
   return (
     <div className="grid">
       <div className="contact_details-header">
-        <img src={selectedContact.image} alt="" />
-        <h3>
-          {selectedContact.firstName}
-          {''}
-          {selectedContact.lastName}
-        </h3>
-      </div>
+        <div className="contact_details-container ">
+          <img
+            className="contact_details-image"
+            src={selectedContact.image}
+            alt=""
+          />
+          <h3>
+            {selectedContact.firstName}
+            {''}
+            {selectedContact.lastName}
+          </h3>
+        </div>
 
-      <div className="button-container">
-        <button
-          className="contact-button-delete"
-          onClick={() => handleDelete(selectedContact.id)}
-        >
-          Remove Contact
-        </button>
-        <Link
-          className="button-add"
-          to={`/home/dates/add-date/${selectedContact.id}`}
-        >
-          Add new date
-        </Link>
+        <div className="button-container">
+          <button
+            className="contact-button-delete"
+            onClick={() => handleDelete(selectedContact.id)}
+          >
+            Remove Contact
+          </button>
+          <Link
+            className="button-add"
+            to={`/home/dates/add-date/${selectedContact.id}`}
+          >
+            Add new date
+          </Link>
+          <Link to={`/home/contacts/edit/${selectedContact.id}`}>
+            <button
+              className="edit-icon"
+              onClick={() => editContact(selectedContact.id)}
+            >
+              <img src={editIcon} alt="" />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   )

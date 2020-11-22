@@ -32,14 +32,6 @@ const Contact = ({ contact }) => {
           ) : (
             <img src={plusIcon} alt="" className="contact-photo" />
           )}
-          {/* <Link to={`/home/contacts/edit/${contact.id}`}>
-            <button
-              className="edit-icon"
-              onClick={() => editContact(contact.id)}
-            >
-              <img src={editIcon} alt="" />
-            </button>
-          </Link> */}
 
           <h3>
             First Name:{' '}

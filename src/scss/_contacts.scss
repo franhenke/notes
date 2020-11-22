@@ -53,10 +53,14 @@
   text-align: center;
 }
 
+.favorite_contact-container {
+  grid-column: 2/9;
+}
+
 .favorite_contact-carousel {
   height: 120px;
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
   margin: 0.8em;
 
   img {
@@ -66,7 +70,7 @@
   }
 
   p {
-    font-size: 0.8em;
+    font-size: 0.7em;
     text-align: center;
   }
 }

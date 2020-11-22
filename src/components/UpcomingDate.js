@@ -21,6 +21,8 @@ const UpcomingDate = ({ date, contactName, contactImage }) => {
 
   const now = new Date(date.when) - new Date()
   console.log(now)
+  console.log(new Date(date.when))
+  console.log(new Date())
 
   return (
     <div>

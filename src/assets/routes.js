@@ -1,6 +1,6 @@
 export const HOME = '/home'
 export const CONTACTS = '/home/contacts'
-export const CONTACTDETAILS = '/home/contact/:contactId'
+export const CONTACTDETAILS = '/home/contacts/:contactId'
 export const ADDCONTACT = '/home/contacts/add-contact'
 export const EDITCONTACT = '/home/contacts/edit/:id'
 

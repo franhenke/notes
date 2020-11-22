@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { getDatesOfNext4Days } from '../assets/services/FilterUpcomingDates'
 import UpcomingDatesList from '../components/UpcomingDatesList'
+import ContactList from '../components/ContactList'
 import Header from '../components/Header'
 import FavoriteContactsList from '../components/FavoriteContactsList'
 
@@ -12,8 +13,8 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} />
       <FavoriteContactsList />
+      <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} />
     </div>
   )
 }

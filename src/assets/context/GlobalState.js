@@ -1,4 +1,5 @@
 import React, { useEffect, createContext, useReducer } from 'react'
+import { toast } from 'react-toastify'
 import { loadFromLocal, saveToLocal } from '../services/localStorage'
 import AppReducer from './AppReducer'
 
@@ -149,6 +150,7 @@ export const GlobalProvider = ({ children }) => {
       type: 'ADD_DATE',
       payload: dates,
     })
+    toast.dark('Date added')
   }
 
   function editDate(dates) {
