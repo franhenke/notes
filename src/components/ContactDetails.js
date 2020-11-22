@@ -7,6 +7,7 @@ import PersonalInfoDetails from './PersonalInfoDetails'
 import ContactDetailsCategories from './ContactDetailsCategories'
 
 const ContactDetails = () => {
+  const [infoType, setInfoType] = useState('contact-details')
   const {
     removeContact,
     editContact,
@@ -14,7 +15,7 @@ const ContactDetails = () => {
     dates,
     removeDate,
   } = useContext(GlobalContext)
-  const [infoType, setInfoType] = useState('contact-details')
+
   const { contactId } = useParams()
   const [selectedContact] = contacts.filter(
     (contact) => contactId === contact.id + ''
@@ -34,9 +35,9 @@ const ContactDetails = () => {
         <ContactDetailsCategories setInfoType={setInfoType} />
         <div className="contact_info-section">
           {infoType === 'contact-details' ? (
-            <ContactInfoDetails />
+            <ContactInfoDetails contactInfos={selectedContact} />
           ) : (
-            <PersonalInfoDetails />
+            <PersonalInfoDetails contactInfos={selectedContact} />
           )}
         </div>
         <div className="button-container">

@@ -33,3 +33,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.contact-info {
+  grid-column: 2/8;
+  text-align: left;
+  background: $bg-drk-date;
+  padding: 1em;
+  margin: 1.5em 0;
+
+  span {
+    font-weight: 300;
+    color: $contrast-drk;
+    padding-left: 0.5em;
+  }
+}
