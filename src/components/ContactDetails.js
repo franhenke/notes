@@ -18,7 +18,6 @@ const ContactDetails = () => {
     (contact) => contactId === contact.id + ''
   )
 
-  console.log(selectedContact)
   function handleRemoveDate(date) {
     removeDate(date.id)
   }
@@ -38,19 +37,20 @@ const ContactDetails = () => {
   return (
     <div className="grid">
       <div className="contact_details-header">
-        <div className="contact_details-container ">
-          <img
-            className="contact_details-image"
-            src={selectedContact.image}
-            alt=""
-          />
-          <h3>
-            {selectedContact.firstName}
-            {''}
-            {selectedContact.lastName}
-          </h3>
-        </div>
-
+        <img
+          className="contact_details-image"
+          src={selectedContact.image}
+          alt=""
+        />
+        <h3>
+          {selectedContact.firstName} {selectedContact.lastName}
+        </h3>
+        <section className="grid">
+          <div className="categories">
+            <button className="btn-category">Contact details</button>
+            <button className="btn-category">Personal info</button>
+          </div>
+        </section>
         <div className="button-container">
           <button
             className="contact-button-delete"
