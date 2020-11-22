@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { Link, useParams } from 'react-router-dom'
-import plusIcon from '../assets/icons/plus-circle.svg'
 import editIcon from '../assets/icons/edit.svg'
+import ContactInfoDetails from './ContactInfoDetails'
+import PersonalInfoDetails from './PersonalInfoDetails'
+import ContactDetailsCategories from './ContactDetailsCategories'
 
 const ContactDetails = () => {
   const {
@@ -12,27 +14,11 @@ const ContactDetails = () => {
     dates,
     removeDate,
   } = useContext(GlobalContext)
-
+  const [infoType, setInfoType] = useState('contact-details')
   const { contactId } = useParams()
   const [selectedContact] = contacts.filter(
     (contact) => contactId === contact.id + ''
   )
-
-  function handleRemoveDate(date) {
-    removeDate(date.id)
-  }
-
-  async function handleDelete() {
-    const relatedDate = dates.filter(
-      (date) => date.contactId === selectedContact.id
-    )
-    try {
-      removeContact(selectedContact.id)
-      relatedDate.forEach(handleRemoveDate)
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
   return (
     <div className="grid">
@@ -45,12 +31,14 @@ const ContactDetails = () => {
         <h3>
           {selectedContact.firstName} {selectedContact.lastName}
         </h3>
-        <section className="grid">
-          <div className="categories">
-            <button className="btn-category">Contact details</button>
-            <button className="btn-category">Personal info</button>
-          </div>
-        </section>
+        <ContactDetailsCategories setInfoType={setInfoType} />
+        <div className="contact_info-section">
+          {infoType === 'contact-details' ? (
+            <ContactInfoDetails />
+          ) : (
+            <PersonalInfoDetails />
+          )}
+        </div>
         <div className="button-container">
           <button
             className="contact-button-delete"
@@ -76,6 +64,22 @@ const ContactDetails = () => {
       </div>
     </div>
   )
+
+  function handleRemoveDate(date) {
+    removeDate(date.id)
+  }
+
+  async function handleDelete() {
+    const relatedDate = dates.filter(
+      (date) => date.contactId === selectedContact.id
+    )
+    try {
+      removeContact(selectedContact.id)
+      relatedDate.forEach(handleRemoveDate)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }
 
 export default ContactDetails
