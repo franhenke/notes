@@ -1,13 +1,14 @@
 .contact_details-header {
   grid-column: 1/9;
+  height: 20vh;
+  text-align: center;
+  margin-bottom: 2.2em;
   background-image: linear-gradient(
     to bottom,
     rgb(27, 45, 96),
     rgb(17, 23, 34) 65%,
     rgb(14, 18, 26) 90%
   );
-  height: 20vh;
-  text-align: center;
 
   img {
     margin-top: 2em;
@@ -28,10 +29,16 @@
 
 .categories {
   grid-column: 2/8;
-  display: flex;
   height: 3em;
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.contact_info-section {
+  grid-column: 2/8;
 }
 
 .contact-info {
@@ -39,7 +46,7 @@
   text-align: left;
   background: $bg-drk-date;
   padding: 1em;
-  margin: 1.5em 0;
+  margin: 0.5em 0;
 
   span {
     font-weight: 300;

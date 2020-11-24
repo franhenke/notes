@@ -2,12 +2,9 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
 import { Link } from 'react-router-dom'
 import plusIcon from '../assets/icons/plus-circle.svg'
-import editIcon from '../assets/icons/edit.svg'
 
 const Contact = ({ contact }) => {
-  const { removeContact, editContact, dates, removeDate } = useContext(
-    GlobalContext
-  )
+  const { removeContact, dates, removeDate } = useContext(GlobalContext)
 
   function handleRemoveDate(date) {
     removeDate(date.id)

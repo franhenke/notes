@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../assets/context/GlobalState'
-import { useHistory } from 'react-router-dom'
 import cancelIcon from '../assets/icons/cross.svg'
 
 const EditDateForm = () => {
@@ -8,7 +7,7 @@ const EditDateForm = () => {
     id: null,
     date: '',
   })
-  let history = useHistory()
+
   const { editDate } = useContext(GlobalContext)
 
   const handleInputChange = (event) => {

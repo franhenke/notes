@@ -6,23 +6,17 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 import { GlobalContext } from '../assets/context/GlobalState'
-import editIcon from '../assets/icons/edit.svg'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(localizedFormat)
 dayjs.extend(calendar)
 
 const UpcomingDate = ({ date, contactName, contactImage }) => {
-  const { editDate, removeDate } = useContext(GlobalContext)
+  const { removeDate } = useContext(GlobalContext)
 
   const parsedDate = dayjs(date.when)
   const formattedDate = dayjs(parsedDate).format('dddd, MMM DD')
   const todaysDateFormatted = dayjs(new Date()).format('LL')
-
-  const now = new Date(date.when) - new Date()
-  console.log(now)
-  console.log(new Date(date.when))
-  console.log(new Date())
 
   return (
     <div>

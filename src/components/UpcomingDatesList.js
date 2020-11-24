@@ -15,9 +15,11 @@ const UpcomingDatesList = ({ sortedUpcomingDates }) => {
     return contactRef.image
   }
 
-  sortedUpcomingDates = sortedUpcomingDates.filter(
-    (a) => new Date(a.when) - new Date() > -63200000
-  )
+  // sortedUpcomingDates = sortedUpcomingDates.filter(
+  //   (a) => new Date(a.when) - new Date() > -63200000
+  // )
+
+  console.log(sortedUpcomingDates)
 
   return (
     <div className="grid">

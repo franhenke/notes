@@ -1,12 +1,14 @@
 import React from 'react'
+import Navigation from './Navigation'
 
 const Header = () => {
   const userName = 'Sarah'
 
   return (
-    <div className="header">
+    <header className="header">
+      <Navigation />
       <h3>Hello {userName}</h3>
-    </div>
+    </header>
   )
 }
 
