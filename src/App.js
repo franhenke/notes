@@ -10,10 +10,13 @@ import AddDate from './components/AddDate'
 import Home from './pages/home'
 import EditDateForm from './components/EditDateForm'
 import ContactDetailsPage from './pages/contactDetailsPage'
+import Header from './components/Header'
+import Menu from './components/Navigation/Menu'
 
 function App() {
   return (
     <GlobalProvider>
+      <Menu />
       <Switch>
         <Redirect exact from="/" to={ROUTES.HOME} />
         <Route path={ROUTES.HOME} component={Home} exact />
@@ -28,6 +31,7 @@ function App() {
         <Route exact path={ROUTES.ADDDATE} component={() => <AddDate />} />
         <Route path={ROUTES.ADDDATE} component={AddDate} exact />
         <Route path={ROUTES.EDITDATE} component={EditDateForm} exact />
+        <Route component={() => 404} />
       </Switch>
       <ToastContainer
         position="bottom-center"
