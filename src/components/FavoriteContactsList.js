@@ -9,7 +9,7 @@ const FavoriteContactsList = () => {
   )
 
   return (
-    <div className="grid">
+    <div className="favorites">
       <div className="favorite_contact-container">
         <h4>Favorites</h4>
         <div className="favorite_contact-carousel">

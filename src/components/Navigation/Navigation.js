@@ -12,11 +12,11 @@ const Navigation = () => {
     <>
       <div className="navbar">
         <Link to="#" className="menu-bars">
-          <img src={menuIcon} alt="" onClick={showSidebar} />
+          <ion-icon name="menu-outline" onClick={showSidebar}></ion-icon>
         </Link>
       </div>
 
-      <nav className={sidebar ? 'nav-menu-active' : 'nav-menu'}>
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
         <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="navbar-toggle">
             <Link to="#">

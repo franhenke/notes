@@ -4,7 +4,7 @@ import * as ROUTES from './../assets/routes'
 
 const FavoriteContact = ({ favoriteContact }) => {
   return (
-    <Link to={`/home/contacts/${favoriteContact.id}`}>
+    <Link to={`/contacts/${favoriteContact.id}`}>
       <div className="fav_contact">
         <img src={favoriteContact.image} alt="" />
         <p>{favoriteContact.firstName}</p>

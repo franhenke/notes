@@ -14,6 +14,15 @@
   }
 }
 
+.contact-details-info {
+  background: $bg-drk-contrast;
+  width: 400px;
+  height: 200px;
+  text-align: left;
+  padding: 1em;
+  font-size: 0.8em;
+}
+
 .contact_details-container {
   grid-column: 2/8;
 }
@@ -38,6 +47,8 @@
 
 .contact_info-section {
   grid-column: 2/8;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-info {

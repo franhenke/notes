@@ -22,7 +22,7 @@ const UpcomingDatesList = ({ sortedUpcomingDates }) => {
   console.log(sortedUpcomingDates)
 
   return (
-    <div className="grid">
+    <div className="dates">
       <div className="dates-container">
         <h2>Upcoming Dates</h2>
         {sortedUpcomingDates.length > 0 ? (

@@ -12,12 +12,13 @@ import EditDateForm from './components/EditDateForm'
 import ContactDetailsPage from './pages/contactDetailsPage'
 import Header from './components/Header'
 import FavoriteContactsList from './components/FavoriteContactsList'
+import Navigation from './components/Navigation/Navigation'
 
 function App() {
   return (
     <GlobalProvider>
       <div className="grid">
-        <Header />
+        <Navigation />
         <Switch>
           <Redirect exact from="/" to={ROUTES.HOME} />
           <Route path={ROUTES.HOME} component={Home} exact />
