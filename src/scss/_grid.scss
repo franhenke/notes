@@ -5,6 +5,7 @@
   height: fit-content;
   justify-content: center;
   grid-template-columns: 0.5fr repeat(6, 1fr) 0.5fr;
+  grid-template-rows: repeat(5, 20vh);
 }
 
 // small tablet

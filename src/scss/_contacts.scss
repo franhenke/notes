@@ -39,7 +39,14 @@
   margin-bottom: 0.5em;
 }
 
-.contact-info {
+.info-container {
+  grid-row: 1/5;
+  grid-column: 1/9;
+}
+
+.contact-details-info {
+  height: 250px;
+  width: 80%;
   color: $text-light;
   font-weight: 400;
 }
@@ -55,6 +62,7 @@
 
 .favorite_contact-container {
   grid-column: 2/9;
+  grid-row: 1/2;
 }
 
 .favorite_contact-carousel {
@@ -83,4 +91,9 @@
       border-radius: 50px;
     }
   }
+}
+
+.favorites {
+  grid-column: 2/9;
+  grid-row: 2/3;
 }

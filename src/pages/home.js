@@ -10,11 +10,10 @@ export const Home = () => {
   const sortedUpcomingDates = getDatesOfNext4Days(dates)
 
   return (
-    <div>
-      <Header />
+    <>
       <FavoriteContactsList />
       <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} />
-    </div>
+    </>
   )
 }
 export default Home

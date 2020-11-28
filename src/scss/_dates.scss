@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
   height: 100px;
-  background: $bg-drk-date;
+  background: $bg-drk-contrast;
   border-radius: 10px;
   margin-bottom: 1em;
   padding: 10px 20px;
@@ -36,4 +36,9 @@
 
 .date_item-date {
   font-size: 1.2em;
+}
+
+.dates {
+  grid-column: 2/8;
+  grid-row: 3/5;
 }
