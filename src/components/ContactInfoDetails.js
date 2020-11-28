@@ -4,8 +4,8 @@ export const ContactInfoDetails = ({ contactInfos }) => {
   const { email, phone } = contactInfos
 
   return (
-    <div className="grid">
-      <section className="contact-info">
+    <div>
+      <section className="contact-details-info">
         <h3>
           Phone: <span>{phone}</span>
         </h3>

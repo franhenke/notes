@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContactDetailsCategories = ({ setInfoType }) => {
   return (
-    <section className="grid">
+    <section>
       <div className="categories">
         <button
           onClick={() => setInfoType('contact-details')}

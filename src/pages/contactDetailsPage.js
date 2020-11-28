@@ -3,7 +3,7 @@ import ContactDetails from '../components/ContactDetails'
 
 export const ContactDetailsPage = () => {
   return (
-    <div>
+    <div className="info-container">
       <ContactDetails />
     </div>
   )

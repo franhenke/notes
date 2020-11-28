@@ -22,7 +22,7 @@ const Contact = ({ contact }) => {
 
   return (
     <>
-      <Link to={`/home/contacts/${contact.id}`}>
+      <Link to={`/contacts/${contact.id}`}>
         <div className="contact-item">
           {contact.image ? (
             <img src={contact.image} alt="" className="contact-photo" />

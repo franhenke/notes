@@ -22,46 +22,44 @@ const ContactDetails = () => {
   )
 
   return (
-    <div className="grid">
-      <div className="contact_details-header">
-        <img
-          className="contact_details-image"
-          src={selectedContact.image}
-          alt=""
-        />
-        <h3>
-          {selectedContact.firstName} {selectedContact.lastName}
-        </h3>
-        <ContactDetailsCategories setInfoType={setInfoType} />
-        <div className="contact_info-section">
-          {infoType === 'contact-details' ? (
-            <ContactInfoDetails contactInfos={selectedContact} />
-          ) : (
-            <PersonalInfoDetails contactInfos={selectedContact} />
-          )}
-        </div>
-        <div className="button-container">
+    <div className="contact_details-header">
+      <img
+        className="contact_details-image"
+        src={selectedContact.image}
+        alt=""
+      />
+      <h3>
+        {selectedContact.firstName} {selectedContact.lastName}
+      </h3>
+      <ContactDetailsCategories setInfoType={setInfoType} />
+      <div className="contact_info-section">
+        {infoType === 'contact-details' ? (
+          <ContactInfoDetails contactInfos={selectedContact} />
+        ) : (
+          <PersonalInfoDetails contactInfos={selectedContact} />
+        )}
+      </div>
+      <div className="button-container">
+        <button
+          className="contact-button-delete"
+          onClick={() => handleDelete(selectedContact.id)}
+        >
+          Remove Contact
+        </button>
+        <Link
+          className="button-add"
+          to={`/dates/add-date/${selectedContact.id}`}
+        >
+          Add new date
+        </Link>
+        <Link to={`/home/contacts/edit/${selectedContact.id}`}>
           <button
-            className="contact-button-delete"
-            onClick={() => handleDelete(selectedContact.id)}
+            className="edit-icon"
+            onClick={() => editContact(selectedContact.id)}
           >
-            Remove Contact
+            <img src={editIcon} alt="" />
           </button>
-          <Link
-            className="button-add"
-            to={`/home/dates/add-date/${selectedContact.id}`}
-          >
-            Add new date
-          </Link>
-          <Link to={`/home/contacts/edit/${selectedContact.id}`}>
-            <button
-              className="edit-icon"
-              onClick={() => editContact(selectedContact.id)}
-            >
-              <img src={editIcon} alt="" />
-            </button>
-          </Link>
-        </div>
+        </Link>
       </div>
     </div>
   )

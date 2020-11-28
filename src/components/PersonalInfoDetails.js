@@ -4,8 +4,8 @@ const PersonalInfoDetails = ({ contactInfos }) => {
   const { addressLine, postalCode, city, birthday } = contactInfos
 
   return (
-    <div className="grid">
-      <section className="contact-info">
+    <div>
+      <section className="contact-details-info">
         <h3>
           Address: <span>{addressLine}</span>
         </h3>
