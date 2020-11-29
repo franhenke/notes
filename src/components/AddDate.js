@@ -1,5 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import 'antd/dist/antd.css'
+import { DatePicker } from 'antd'
+import moment from 'moment'
 import * as ROUTES from './../assets/routes'
 import { GlobalContext } from '../assets/context/GlobalState'
 import useForm from '../hooks/useForm'
@@ -9,30 +12,26 @@ const AddDate = () => {
   const [values, handleChange, handleSubmit] = useForm(handleAddDate)
   const { contactID } = useParams()
 
+  const dateFormat = 'dddd L LT'
+  const customFormat = (value) => {
+    return value.format(dateFormat)
+  }
+
+  function onChange(value, dateString) {
+    const newDate = dateString
+    values.when = newDate
+  }
+
   function handleAddDate(values) {
     values.contactId = parseInt(contactID)
     addDate(values)
-    console.log(values)
-    return values
   }
 
   return (
     <div className="add-date_form-container">
       <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
-        <input
-          type="date"
-          name="when"
-          value={values.when || ''}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="time"
-          name="time"
-          value={values.time || ''}
-          onChange={handleChange}
-        />
+        <DatePicker showTime format={customFormat} onChange={onChange} />
         <label htmlFor="where">Occasion</label>
         <input
           type="text"
