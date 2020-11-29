@@ -1,10 +1,8 @@
 .navbar {
-  grid-column: 1/3;
-  grid-row: 1/3;
   background: none;
   height: 80px;
   display: flex;
-  justify-content: start;
+
   align-items: center;
   z-index: 50;
 }
@@ -20,7 +18,6 @@
   width: 250px;
   height: 100vh;
   display: flex;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: -100%;
@@ -34,7 +31,7 @@
 
 .nav-text {
   display: flex;
-  justify-content: start;
+
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
@@ -71,7 +68,6 @@
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: start;
   align-items: center;
 }
 
@@ -80,26 +76,30 @@ span {
 }
 
 @media screen and (min-width: 960px) {
+  .sidebar-menu {
+    grid-column: 1/2;
+    grid-row: 1/7;
+  }
+
   .navbar {
-    width: 200px;
+    width: 180px;
     background: $bg-drk-contrast;
+    margin-right: 1em;
   }
 
   .menu-bars {
     display: none;
   }
+
   .nav-menu {
-    width: 200px;
+    width: 180px;
     background: $bg-drk-contrast;
     height: 100vh;
     display: flex;
-    top: 65px;
+    top: 0;
     left: 0;
-    transition: none;
 
-    .nav-menu.active {
-      width: 200px;
-    }
+    transition: none;
 
     .nav-menu-items {
       background: $bg-drk-contrast;

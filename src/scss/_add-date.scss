@@ -92,7 +92,7 @@ input {
 .ant-picker-panel-container,
 .ant-picker-panel,
 .ant-picker-datetime-panel {
-  background: #323b4d;
+  background: $bg-drk-contrast;
 }
 
 .ant-picker-time-panel-column:not(:first-child),
@@ -140,4 +140,55 @@ input {
   > li.ant-picker-time-panel-cell-selected
   .ant-picker-time-panel-cell-inner {
   background: $category-friend;
+}
+
+@media screen and (min-width: 960px) {
+  .add-date_form-container {
+    position: relative;
+    grid-column: 2/4;
+    grid-row: 4/7;
+
+    .contact-button-cancel {
+      display: none;
+    }
+
+    .add-date_details {
+      margin-top: 0.3em;
+    }
+
+    h4 {
+      text-align: left;
+      margin-bottom: 1em;
+    }
+
+    label {
+      font-weight: 300;
+      font-size: 1em;
+      color: $contrast-drk_main;
+      padding: 0;
+    }
+    input {
+      width: 100%;
+      color: $contrast-drk_main;
+      font-weight: 300;
+      margin: 0 auto 1em;
+      background: transparent;
+      border: 1px solid rgba(151, 151, 151, 0.3);
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 1em;
+    }
+
+    .ant-picker-input,
+    .ant-picker-focused {
+      width: 100%;
+
+      input {
+        border: none;
+        padding: 10px 10px 0px;
+      }
+    }
+  }
 }

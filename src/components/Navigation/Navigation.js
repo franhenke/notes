@@ -9,7 +9,7 @@ const Navigation = () => {
   const showSidebar = () => setSidebar(!sidebar)
 
   return (
-    <>
+    <div className="sidebar-menu">
       <div className="navbar">
         <Link to="#" className="menu-bars">
           <ion-icon name="menu-outline" onClick={showSidebar}></ion-icon>
@@ -20,7 +20,7 @@ const Navigation = () => {
         <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="navbar-toggle">
             <Link to="#">
-              <i class="ionicons ion-ios-close-empty"></i>
+              <i className="ionicons ion-ios-close-empty"></i>
             </Link>
           </li>
           {SidebarData.map((link) => {
@@ -35,7 +35,7 @@ const Navigation = () => {
           })}
         </ul>
       </nav>
-    </>
+    </div>
   )
 }
 
