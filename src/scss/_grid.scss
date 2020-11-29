@@ -1,11 +1,18 @@
 // mobile
 .grid {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(17, 29, 61),
+    rgb(13, 20, 37) 20%,
+    rgb(4, 6, 12) 60%,
+    rgb(3, 4, 8) 85%
+  );
   display: grid;
   width: 100vw;
   height: fit-content;
   justify-content: center;
   grid-template-columns: 0.5fr repeat(6, 1fr) 0.5fr;
-  grid-template-rows: repeat(5, 20vh);
+  grid-template-rows: 10vh repeat(4, 20vh) 10vh;
 }
 
 // small tablet

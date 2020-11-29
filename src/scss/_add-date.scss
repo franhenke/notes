@@ -1,12 +1,143 @@
+.add-date_form-container {
+  position: relative;
+  grid-column: 2/8;
+  grid-row: 2/6;
+  align-self: center;
+
+  img {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    right: 5px;
+    top: -3em;
+  }
+
+  h4 {
+    text-align: center;
+    margin-bottom: 3em;
+  }
+}
+
 .add-date-form {
-  padding: 1rem;
-  max-width: 700px;
   display: flex;
   flex-direction: column;
 
-  input {
-    padding: 0.5rem;
-    outline: none;
-    width: 200px;
+  label {
+    font-weight: 300;
+    font-size: 1em;
+    color: $contrast-drk_main;
+    padding: 0;
   }
+  input {
+    width: 100%;
+    margin: 0 auto 1.8em;
+    color: $contrast-drk_main;
+    background: transparent;
+    border: 1px solid rgba(151, 151, 151, 0.3);
+    border-radius: 5px;
+    background: transparent;
+  }
+}
+input {
+  &:focus {
+    border: 1px solid rgba(252, 198, 114, 0.9);
+  }
+}
+
+.add-date_details {
+  margin-top: 2em;
+}
+
+.datepicker {
+  border: 1px solid rgba(151, 151, 151, 0.3);
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+
+  .ant-picker.datepicker {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+  }
+
+  .ant-picker-input,
+  .ant-picker-focused {
+    width: 100%;
+
+    input {
+      border: none;
+    }
+  }
+
+  .ant-picker-focused {
+    border-color: none;
+    border-right-width: none;
+    outline: none !important;
+    -webkit-box-shadow: 0 0 0 2px rgba(24, 143, 255, 0) !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0) !important;
+  }
+
+  .ant-picker-suffix {
+    color: $contrast-drk;
+    padding: 0.5em;
+  }
+  input {
+    width: 220px;
+    color: $contrast-drk;
+    margin: 20px;
+  }
+}
+
+.ant-picker-panel,
+.ant-picker-panel-container,
+.ant-picker-panel,
+.ant-picker-datetime-panel {
+  background: #323b4d;
+}
+
+.ant-picker-time-panel-column:not(:first-child),
+.ant-picker-datetime-panel .ant-picker-time-panel {
+  border-left: 1px solid #8f8f8f;
+}
+.ant-picker-panel .ant-picker-footer {
+  border-top: 1px solid#525252;
+}
+
+.ant-picker-header {
+  border-bottom: 1px solid #525252;
+  color: white;
+
+  button {
+    color: white;
+  }
+}
+.ant-picker-footer {
+  border-bottom: 1px solid #525252;
+}
+
+.ant-picker-panel {
+  border: 1px solid #525252;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.ant-picker-content th,
+.ant-picker-content td {
+  color: white;
+}
+
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell
+  .ant-picker-time-panel-cell-inner {
+  color: wheat;
+}
+
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  background: $category-friend;
 }
