@@ -12,11 +12,6 @@ const AddDate = () => {
   const [values, handleChange, handleSubmit] = useForm(handleAddDate)
   const { contactID } = useParams()
 
-  const dateFormat = 'dddd L LT'
-  const customFormat = (value) => {
-    return value.format(dateFormat)
-  }
-
   function onChange(value, dateString) {
     const newDate = dateString
     values.when = newDate
@@ -31,7 +26,11 @@ const AddDate = () => {
     <div className="add-date_form-container">
       <form onSubmit={handleSubmit} className="add-date-form">
         <h4>Add new date</h4>
-        <DatePicker showTime format={customFormat} onChange={onChange} />
+        <DatePicker
+          showTime={{ minuteStep: 15 }}
+          format="dddd, MMM D YYYY, HH:mm"
+          onChange={onChange}
+        />
         <label htmlFor="where">Occasion</label>
         <input
           type="text"
