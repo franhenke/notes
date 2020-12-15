@@ -1,6 +1,6 @@
 const contacts = [
   {
-    _id: 1,
+    _id: '1',
     firstName: 'Kate',
     lastName: 'Edison',
     email: 'Sincere@april.biz',
@@ -14,7 +14,7 @@ const contacts = [
     favorite: true,
   },
   {
-    _id: 2,
+    _id: '2',
     firstName: 'Oliver',
     lastName: 'Grayson',
     email: 'Sincere@april.biz',
@@ -29,7 +29,7 @@ const contacts = [
     favorite: true,
   },
   {
-    _id: 3,
+    _id: '3',
     firstName: 'Jane',
     lastName: 'Sloan',
     email: 'Sincere@april.biz',
@@ -44,7 +44,7 @@ const contacts = [
     favorite: false,
   },
   {
-    _id: 4,
+    _id: '4',
     firstName: 'Richard',
     lastName: 'Hunter',
     email: 'Sincere@april.biz',
@@ -59,7 +59,7 @@ const contacts = [
     favorite: false,
   },
   {
-    _id: 5,
+    _id: '5',
     firstName: 'Sutton',
     lastName: 'Brady',
     email: 'Sincere@april.biz',
@@ -74,7 +74,7 @@ const contacts = [
     favorite: true,
   },
   {
-    _id: 6,
+    _id: '6',
     firstName: 'Jacqueline',
     lastName: 'Carlyle',
     email: 'Sincere@april.biz',
@@ -88,6 +88,7 @@ const contacts = [
       'https://res.cloudinary.com/etournal/image/upload/v1605452992/contacts/jacq_yyzd3p.jpg',
     favorite: true,
   },
-];
+]
 
-export default contacts;
+// export default contacts;
+module.exports = contacts
