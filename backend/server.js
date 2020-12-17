@@ -2,7 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import contacts from './data/contacts.js'
+
+import contactRoutes from './routes/contactRoutes.js'
 
 dotenv.config()
 connectDB()
@@ -12,15 +13,7 @@ app.get('/', (req, res) => {
   res.send('API is running')
 })
 
-app.get('/api/contacts', (req, res) => {
-  console.log('contacts are here')
-  res.json(contacts)
-})
-
-app.get('/api/contacts/:id', (req, res) => {
-  const contact = contacts.find((c) => c._id === req.params.id)
-  res.json(contact)
-})
+app.use('/contacts', contactRoutes)
 
 const PORT = process.env.PORT || 4000
 app.listen(
