@@ -1,6 +1,5 @@
 const contacts = [
   {
-    _id: '1',
     firstName: 'Kate',
     lastName: 'Edison',
     email: 'Sincere@april.biz',
@@ -12,9 +11,25 @@ const contacts = [
     image:
       'https://res.cloudinary.com/etournal/image/upload/v1603894952/d3iovtnx9olqzhjakunn.jpg',
     favorite: true,
+    dates: [
+      {
+        date: '2020-11-29',
+        time: '14:00',
+        occasion: 'brunch',
+        location: 'Cafe May',
+        archived: false,
+      },
+    ],
+    notes: [
+      {
+        created: '2020-11-29',
+        category: 'personal',
+        body: 'New job!',
+        archived: false,
+      },
+    ],
   },
   {
-    _id: '2',
     firstName: 'Oliver',
     lastName: 'Grayson',
     email: 'Sincere@april.biz',
@@ -27,9 +42,26 @@ const contacts = [
     image:
       'https://res.cloudinary.com/etournal/image/upload/v1603906395/ahs0fayuf4qtr253jxpx.jpg',
     favorite: true,
+    dates: [
+      {
+        date: '2020-12-29',
+        time: '14:00',
+        occasion: 'brunch',
+        location: 'Cafe May',
+        archived: false,
+      },
+    ],
+    notes: [
+      {
+        created: '2020-12-05',
+        category: 'personal',
+        body:
+          'How far away hydrogen atoms birth tesseract two ghostly white figures in coveralls and helmets are softly dancing globular star cluster!',
+        archived: false,
+      },
+    ],
   },
   {
-    _id: '3',
     firstName: 'Jane',
     lastName: 'Sloan',
     email: 'Sincere@april.biz',
@@ -42,9 +74,25 @@ const contacts = [
     image:
       'https://res.cloudinary.com/etournal/image/upload/v1605452991/contacts/kate_kvnchn.jpg',
     favorite: false,
+    dates: [
+      {
+        date: '2020-12-25',
+        time: '14:00',
+        occasion: 'brunch',
+        location: 'Brunos',
+        archived: false,
+      },
+    ],
+    notes: [
+      {
+        created: '2020-12-10',
+        category: 'business',
+        body: 'Of brilliant syntheses a very small stage in a vast cosmic',
+        archived: false,
+      },
+    ],
   },
   {
-    _id: '4',
     firstName: 'Richard',
     lastName: 'Hunter',
     email: 'Sincere@april.biz',
@@ -59,7 +107,6 @@ const contacts = [
     favorite: false,
   },
   {
-    _id: '5',
     firstName: 'Sutton',
     lastName: 'Brady',
     email: 'Sincere@april.biz',
@@ -74,7 +121,6 @@ const contacts = [
     favorite: true,
   },
   {
-    _id: '6',
     firstName: 'Jacqueline',
     lastName: 'Carlyle',
     email: 'Sincere@april.biz',
