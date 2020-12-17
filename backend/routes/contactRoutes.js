@@ -26,7 +26,8 @@ router.get(
     if (contact) {
       res.json(contact)
     } else {
-      res.status(404).json({ message: 'Contact not found' })
+      res.status(404)
+      throw new Error('Product not found')
     }
   })
 )
