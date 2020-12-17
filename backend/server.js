@@ -1,6 +1,14 @@
-const express = require('express')
-const contacts = require('./data/contacts')
+import express from 'express'
+import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
+import colors from 'colors'
+import mongoose from 'mongoose'
+import cors from 'cors'
+import connectDB from './config/db.js'
+import contacts from './data/contacts.js'
 
+dotenv.config()
+connectDB()
 const app = express()
 
 app.get('/', (req, res) => {
@@ -17,4 +25,10 @@ app.get('/api/contacts/:id', (req, res) => {
   res.json(contact)
 })
 
-app.listen(4000, console.log('Server running on port 4000'))
+const PORT = process.env.PORT || 4000
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} port ${PORT}`.yellow.bold
+  )
+)
