@@ -1,9 +1,6 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import colors from 'colors'
-import mongoose from 'mongoose'
-import cors from 'cors'
 import connectDB from './config/db.js'
 import contacts from './data/contacts.js'
 

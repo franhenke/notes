@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const userSchema = mongoose.Schema(
   {
-    fristName: {
+    firstName: {
       type: String,
       required: true,
     },
