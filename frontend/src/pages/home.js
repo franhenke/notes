@@ -1,18 +1,29 @@
-import React, { useContext } from 'react'
-import { GlobalContext } from '../assets/context/GlobalState'
-import { getDatesOfNext4Days } from '../assets/services/FilterUpcomingDates'
-import UpcomingDatesList from '../components/UpcomingDatesList'
-import Header from '../components/Header'
-import FavoriteContactsList from '../components/FavoriteContactsList'
+import React, { useEffect, useContext } from 'react'
+import ContactItem from '../ContactItem'
+import ContactContext from '../assets/context/contact/contactContext'
 
 export const Home = () => {
-  const { dates } = useContext(GlobalContext)
-  const sortedUpcomingDates = getDatesOfNext4Days(dates)
+  const contactContext = useContext(ContactContext)
+  const { contacts, getContacts } = contactContext
+
+  useEffect(() => {
+    getContacts()
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <>
-      <FavoriteContactsList />
-      <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} />
+      {contacts !== null ? (
+        <div>
+          {contacts.map((contact) => (
+            <ContactItem key={contact._id} contact={contact} />
+          ))}
+        </div>
+      ) : (
+        <h3>...loading</h3>
+      )}
+      {/* <FavoriteContactsList />
+      <UpcomingDatesList sortedUpcomingDates={sortedUpcomingDates} /> */}
     </>
   )
 }

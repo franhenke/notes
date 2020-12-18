@@ -1,5 +1,4 @@
 import React from 'react'
-import { GlobalProvider } from './assets/context/GlobalState'
 import { Redirect, Switch, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -10,13 +9,13 @@ import AddDate from './components/AddDate'
 import Home from './pages/home'
 import EditDateForm from './components/EditDateForm'
 import ContactDetailsPage from './pages/contactDetailsPage'
-import Header from './components/Header'
 import FavoriteContactsList from './components/FavoriteContactsList'
 import Navigation from './components/Navigation/Navigation'
+import ContactState from './assets/context/contact/ContactState'
 
 function App() {
   return (
-    <GlobalProvider>
+    <ContactState>
       <div className="grid">
         <Navigation />
         <Switch>
@@ -46,7 +45,7 @@ function App() {
           pauseOnHover
         />
       </div>
-    </GlobalProvider>
+    </ContactState>
   )
 }
 
