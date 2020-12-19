@@ -15,8 +15,8 @@ const Contact = ({ contact }) => {
     try {
       removeContact(contact.id)
       relatedDate.forEach(handleRemoveDate)
-    } catch (err) {
-      console.error(err)
+    } catch (error) {
+      console.error(error)
     }
   }
 

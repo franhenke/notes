@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from './../assets/routes'
 
-const FavoriteContact = ({ favoriteContact }) => {
+const FavoriteContact = ({ contact }) => {
   return (
-    <Link to={`/contacts/${favoriteContact.id}`}>
+    <Link to={`/contacts/${contact.id}`}>
       <div className="fav_contact">
-        <img src={favoriteContact.image} alt="" />
-        <p>{favoriteContact.firstName}</p>
+        <img src={contact.image} alt="" />
+        <p>{contact.firstName}</p>
       </div>
     </Link>
   )

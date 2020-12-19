@@ -1,22 +1,20 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '../assets/context/GlobalState'
 import FavoriteContact from './FavoriteContact'
+import ContactContext from '../assets/context/contact/contactContext'
 
 const FavoriteContactsList = () => {
-  const { contacts } = useContext(GlobalContext)
-  const favoriteContacts = contacts.filter(
-    (contact) => contact.favorite === true
-  )
+  const contactContext = useContext(ContactContext)
+  const { contacts } = contactContext
 
   return (
     <div className="favorites">
       <div className="favorite_contact-container">
         <h4>Favorites</h4>
         <div className="favorite_contact-carousel">
-          {favoriteContacts.length > 0 ? (
-            favoriteContacts.map((favoriteContact) => (
+          {contacts.length > 0 ? (
+            contacts.map((favoriteContact) => (
               <FavoriteContact
-                key={favoriteContact.id}
+                key={favoriteContact._id}
                 favoriteContact={favoriteContact}
               />
             ))
