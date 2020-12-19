@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   res.send('API is running')
 })
 
-app.use('/contacts', contactRoutes)
+app.use('/', contactRoutes)
 
 app.use(notFound)
 

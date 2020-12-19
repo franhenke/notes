@@ -25,6 +25,22 @@ const ContactState = ({ children }) => {
 
   const [state, dispatch] = useReducer(contactReducer, initialState)
 
+  const getFavoriteContacts = async () => {
+    try {
+      const res = await axios.get('/home')
+
+      dispatch({
+        type: GET_CONTACTS,
+        payload: res.data,
+      })
+    } catch (error) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: error.response.message,
+      })
+    }
+  }
+
   const getContacts = async () => {
     try {
       const res = await axios.get('/contacts')
@@ -33,10 +49,26 @@ const ContactState = ({ children }) => {
         type: GET_CONTACTS,
         payload: res.data,
       })
-    } catch (err) {
+    } catch (error) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg,
+        payload: error.response.message,
+      })
+    }
+  }
+
+  const getContactDetails = async (id) => {
+    try {
+      const res = await axios.get(`/contacts/${id}`)
+
+      dispatch({
+        type: GET_CONTACTS,
+        payload: res.data,
+      })
+    } catch (error) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: error.response.message,
       })
     }
   }
@@ -55,10 +87,10 @@ const ContactState = ({ children }) => {
         type: ADD_CONTACT,
         payload: res.data,
       })
-    } catch (err) {
+    } catch (error) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg,
+        payload: error.response.message,
       })
     }
   }
@@ -71,11 +103,8 @@ const ContactState = ({ children }) => {
         type: DELETE_CONTACT,
         payload: id,
       })
-    } catch (err) {
-      dispatch({
-        type: CONTACT_ERROR,
-        payload: err.response.msg,
-      })
+    } catch (error) {
+      console.error(error.message)
     }
   }
 
@@ -88,15 +117,14 @@ const ContactState = ({ children }) => {
 
     try {
       const res = await axios.put(`/contacts/${contact._id}`, contact, config)
-
       dispatch({
         type: UPDATE_CONTACT,
         payload: res.data,
       })
-    } catch (err) {
+    } catch (error) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg,
+        payload: error.response.message,
       })
     }
   }
@@ -122,9 +150,12 @@ const ContactState = ({ children }) => {
     <ContactContext.Provider
       value={{
         contacts: state.contacts,
+        contact: state.contacts,
         current: state.current,
         filtered: state.filtered,
         error: state.error,
+        getContacts,
+        getContactDetails,
         addContact,
         deleteContact,
         setCurrent,
@@ -132,7 +163,7 @@ const ContactState = ({ children }) => {
         updateContact,
         filterContacts,
         clearFilter,
-        getContacts,
+        getFavoriteContacts,
         clearContacts,
       }}
     >

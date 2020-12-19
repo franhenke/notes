@@ -12,6 +12,8 @@ import ContactDetailsPage from './pages/contactDetailsPage'
 import FavoriteContactsList from './components/FavoriteContactsList'
 import Navigation from './components/Navigation/Navigation'
 import ContactState from './assets/context/contact/ContactState'
+import ContactsPage from './pages/contactsPage'
+import ContactDetais from './components/Contacts/ContactDetail'
 
 function App() {
   return (
@@ -21,10 +23,11 @@ function App() {
         <Switch>
           <Redirect exact from="/" to={ROUTES.HOME} />
           <Route path={ROUTES.HOME} component={Home} exact />
+          <Route path={ROUTES.CONTACTS} component={ContactsPage} exact />
           <Route
             exact
             path={`/contacts/:contactId`}
-            component={() => <ContactDetailsPage />}
+            component={() => <ContactDetais />}
           />
           <Route path={ROUTES.ADDCONTACT} component={AddContactForm} exact />
           <Route path={ROUTES.EDITCONTACT} component={EditContactForm} exact />
