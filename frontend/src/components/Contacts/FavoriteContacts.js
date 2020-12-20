@@ -2,10 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import ContactContext from '../../assets/context/contact/contactContext'
 import loadingIcon from '../../assets/icons/loading.svg'
 import FavoriteContact from './FavoriteContact'
+import Message from '../UI/Message'
 
 const FavoriteContacts = () => {
   const contactContext = useContext(ContactContext)
-  const { contacts, getFavoriteContacts, loading } = contactContext
+  const { contacts, getFavoriteContacts, loading, error } = contactContext
 
   useEffect(() => {
     getFavoriteContacts()
@@ -24,17 +25,19 @@ const FavoriteContacts = () => {
     <div className="favorites">
       <div className="favorite_contact-container">
         <h4>Favorites</h4>
-        {contacts !== null && !loading ? (
+        {loading ? (
+          <div className="loader">
+            <img src={loadingIcon} alt="" />
+          </div>
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : (
           <div className="favorite_contact-carousel">
             {contacts.map((faveContact) => (
               <div key={faveContact._id} timeout={500} className="item">
                 <FavoriteContact contact={faveContact} />
               </div>
             ))}
-          </div>
-        ) : (
-          <div className="loader">
-            <img src={loadingIcon} alt="" />
           </div>
         )}
       </div>

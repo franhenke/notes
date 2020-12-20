@@ -64,6 +64,10 @@ const ContactSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    type: {
+      type: String,
+      default: 'personal',
+    },
     dates: [datesSchema],
     notes: [notesSchema],
   },
