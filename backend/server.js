@@ -13,7 +13,6 @@ const app = express()
 app.get('/', (req, res) => {
   res.send('API is running')
 })
-
 app.use('/', contactRoutes)
 
 app.use(notFound)

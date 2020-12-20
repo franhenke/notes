@@ -6,12 +6,12 @@ const UpcomingDatesList = ({ sortedUpcomingDates }) => {
   const { contacts } = useContext(GlobalContext)
 
   function contactName(date) {
-    const contactRef = contacts.find((contact) => contact.id === date.contactId)
+    const contactRef = contacts.find((contact) => contact.id === date.id)
     return contactRef.firstName
   }
 
   function contactImage(date) {
-    const contactRef = contacts.find((contact) => contact.id === date.contactId)
+    const contactRef = contacts.find((contact) => contact.id === date.id)
     return contactRef.image
   }
 

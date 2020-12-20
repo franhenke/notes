@@ -20,6 +20,14 @@ export default (state, action) => {
         contacts: action.payload,
         loading: false,
       }
+
+    case GET_CONTACT_DETAILS:
+      return {
+        ...state,
+        contact: action.payload,
+        loading: false,
+      }
+
     case ADD_CONTACT:
       return {
         ...state,

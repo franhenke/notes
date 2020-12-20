@@ -13,7 +13,7 @@ const DateList = () => {
   })
 
   function contactName(date) {
-    const contactRef = contacts.find((contact) => contact.id === date.contactId)
+    const contactRef = contacts.find((contact) => contact.id === date.id)
     if (typeof contactRef != 'undefined') {
       return contactRef.firstName
     } else return null

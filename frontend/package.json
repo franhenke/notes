@@ -27,6 +27,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "react-toastify": "^6.1.0",
+    "react-transition-group": "^4.4.1",
     "rsuite": "^4.8.4",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SidebarData } from './SidebarData'
-import menuIcon from '../../assets/icons/menu.svg'
 
 const Navigation = () => {
   const [sidebar, setSidebar] = useState(false)

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { DatePicker } from 'antd'
@@ -10,7 +10,7 @@ import useForm from '../hooks/useForm'
 const AddDate = () => {
   const { addDate } = useContext(GlobalContext)
   const [values, handleChange, handleSubmit] = useForm(handleAddDate)
-  const { contactID } = useParams()
+  const { id } = useParams()
 
   function onChange(value, dateString) {
     const newDate = dateString
@@ -18,7 +18,7 @@ const AddDate = () => {
   }
 
   function handleAddDate(values) {
-    values.contactId = parseInt(contactID)
+    values.id = parseInt(id)
     addDate(values)
   }
 

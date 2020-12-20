@@ -1,8 +1,4 @@
 import React from 'react'
-import homeIcon from '../../assets/icons/home.svg'
-import datesIcon from '../../assets/icons/calendar.svg'
-import notesIcon from '../../assets/icons/paperclip.svg'
-import contactsIcon from '../../assets/icons/book.svg'
 
 export const SidebarData = [
   {

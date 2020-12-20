@@ -5,11 +5,14 @@ import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './scss/base.scss'
 import 'react-datetime/css/react-datetime.css'
+import { ModalState } from './assets/context/ModalState'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ModalState>
+        <App />
+      </ModalState>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
