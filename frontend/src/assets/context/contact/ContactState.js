@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import axios from 'axios'
 import ContactContext from './contactContext'
 import contactReducer from './contactReducer'
@@ -14,6 +14,7 @@ import {
   CONTACT_ERROR,
   CLEAR_CONTACTS,
 } from '../types'
+import { loadFromLocal, saveToLocal } from '../../services/localStorage'
 
 const ContactState = ({ children }) => {
   const initialState = {
@@ -23,7 +24,14 @@ const ContactState = ({ children }) => {
     error: null,
   }
 
-  const [state, dispatch] = useReducer(contactReducer, initialState)
+  const [state, dispatch] = useReducer(
+    contactReducer,
+    loadFromLocal('contacts') || initialState
+  )
+
+  useEffect(() => {
+    saveToLocal('contacts', state)
+  }, [state])
 
   const getFavoriteContacts = async () => {
     try {

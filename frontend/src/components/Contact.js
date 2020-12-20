@@ -11,7 +11,7 @@ const Contact = ({ contact }) => {
   }
 
   async function handleDelete() {
-    const relatedDate = dates.filter((date) => date.contactId === contact.id)
+    const relatedDate = dates.filter((date) => date.id === contact.id)
     try {
       removeContact(contact.id)
       relatedDate.forEach(handleRemoveDate)
