@@ -1,49 +1,41 @@
 {
   "name": "notes",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@date-io/date-fns": "^1.3.13",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@material-ui/pickers": "^3.2.10",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "date-fns": "^2.16.1",
-    "dayjs": "^1.9.6",
-    "immer": "^7.0.14",
-    "react": "^17.0.0",
-    "react-dom": "^16.14.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4",
-    "rsuite": "^4.8.4",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.3",
-    "semantic-ui-react": "^2.0.1",
-    "use-immer": "^0.4.1"
-  },
+  "version": "1.0.0",
+  "description": "Add notes to your contacts",
+  "main": "server.js",
+  "type": "module",
+  "proxy": "http://localhost:4000",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franhenke/notes.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "fran henke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franhenke/notes/issues"
+  },
+  "homepage": "https://github.com/franhenke/notes#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.8"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
   }
 }

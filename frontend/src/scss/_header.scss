@@ -1,0 +1,14 @@
+.header {
+  grid-column: 1/9;
+  height: 20vh;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(27, 45, 96),
+    rgb(17, 23, 34) 65%,
+    rgb(14, 18, 26) 90%
+  );
+
+  h3 {
+    padding: 1em 1.5em;
+  }
+}

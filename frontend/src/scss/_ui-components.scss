@@ -1,0 +1,14 @@
+.btn-category {
+  color: $contrast-drk;
+  font-size: 1em;
+  letter-spacing: 0.4px;
+  background: none;
+  border: none;
+  padding-bottom: 0.2em;
+  outline: none;
+
+  &:hover {
+    color: $text-link__active;
+    border-bottom: 1px solid $text-link__active;
+  }
+}

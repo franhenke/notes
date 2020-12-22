@@ -1,0 +1,44 @@
+.dates-container {
+  grid-column: 2/8;
+}
+
+.date_item {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100px;
+  background: $bg-drk-contrast;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 10px 20px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: auto 0;
+  }
+}
+
+.date_item-today {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1.5px solid rgba(151, 151, 151, 0.2);
+  h3 {
+    margin-bottom: 0.3em;
+  }
+}
+
+.date_item-occasion {
+  span {
+    color: $category-friend;
+  }
+}
+
+.date_item-date {
+  font-size: 1.2em;
+}
+
+.dates {
+  grid-column: 2/8;
+  grid-row: 3/5;
+}
