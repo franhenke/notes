@@ -1,0 +1,137 @@
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height: fit-content;
+  border-radius: 5px;
+  background: $bg-drk;
+  box-shadow: -6px 6px 15px #121b2d, 6px -6px 15px #111725;
+  text-align: left;
+  padding: 1em;
+  margin: 1em;
+}
+
+.contact-list_item {
+  position: relative;
+  height: 120px;
+  width: 80%;
+  background: $bg-drk;
+  box-shadow: -6px 6px 15px #121b2d, 6px -6px 15px #111725;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-bottom: 1.3em;
+
+  button {
+    position: absolute;
+    right: 1em;
+    top: 0.5em;
+    background: none;
+    width: 2em;
+    border: none;
+  }
+
+  .contact-list-photo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: $border;
+    margin-bottom: 0.5em;
+    object-fit: cover;
+  }
+}
+
+.contact-item {
+  position: relative;
+  border-bottom: $border;
+  border: 1px solid $bg-drk-border;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.contact-photo {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: $border;
+  margin-bottom: 0.5em;
+  object-fit: cover;
+}
+
+.info-container {
+  grid-row: 1/5;
+  grid-column: 1/9;
+}
+
+.contact-details-info {
+  height: 250px;
+  width: 80%;
+  color: $text-light;
+  font-weight: 400;
+}
+
+.link-to-form {
+  color: $text-greenish;
+  margin-top: 1rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  width: 100%;
+  text-align: center;
+}
+
+.favorites {
+  grid-column: 2/9;
+  grid-row: 2/3;
+}
+
+.favorite_contact-container {
+  grid-column: 2/9;
+  grid-row: 1/2;
+}
+
+.favorite_contact-carousel {
+  height: 120px;
+  display: flex;
+  gap: 1em;
+  margin: 0.8em;
+
+  img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50px;
+  }
+
+  p {
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 1.2em;
+
+    img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50px;
+    }
+  }
+}
+
+.favorite-contact-item {
+  button {
+    background: none;
+    border: none;
+  }
+}

@@ -1,0 +1,65 @@
+@import './_variables';
+@import './_helper';
+@import './_grid';
+@import './_button';
+@import './_contacts';
+@import './_contact-details';
+@import './_contact-form';
+@import './_nav';
+@import './_ui-components';
+@import './_add-date';
+@import './_dates';
+@import './_header';
+@import './_clock';
+@import './_modal';
+
+// font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@300;400;500&family=Source+Sans+Pro&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  background-color: $bg-drk;
+}
+
+body,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  color: $contrast-drk_main;
+}
+
+h1,
+h3,
+label {
+  font-size: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  color: $contrast-drk_main;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+a {
+  color: $contrast-drk;
+}
