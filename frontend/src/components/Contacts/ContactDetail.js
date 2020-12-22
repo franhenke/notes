@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ContactInfoDetails from './ContactInfoDetails'
-import PersonalInfoDetails from '../PersonalInfoDetails'
+import PersonalInfoDetails from './PersonalInfoDetails'
 import ContactDetailsCategories from './ContactDetailsCategories'
 
 const ContactDetail = ({ contact, onDelete }) => {
