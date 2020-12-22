@@ -17,8 +17,12 @@ import {
 import { loadFromLocal, saveToLocal } from '../../services/localStorage'
 
 const ContactState = ({ children }) => {
+  const contactsFromStorage = localStorage.getItem('contacts')
+    ? JSON.parse(localStorage.getItem('contacts'))
+    : []
+
   const initialState = {
-    contacts: null,
+    contacts: contactsFromStorage,
     current: null,
     filtered: null,
     error: null,
@@ -158,7 +162,6 @@ const ContactState = ({ children }) => {
     <ContactContext.Provider
       value={{
         contacts: state.contacts,
-        contact: state.contacts,
         current: state.current,
         filtered: state.filtered,
         error: state.error,
