@@ -25,4 +25,10 @@ export const SidebarData = [
     icon: <ion-icon name="calendar-clear-outline"></ion-icon>,
     cName: 'nav-text',
   },
+  {
+    title: 'Profile',
+    path: '/profile',
+    icon: <ion-icon name="stats-chart-outline"></ion-icon>,
+    cName: 'nav-text',
+  },
 ]

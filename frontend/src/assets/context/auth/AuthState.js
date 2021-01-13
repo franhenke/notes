@@ -61,8 +61,8 @@ const AuthState = ({ children }) => {
     }
   }
 
-  // Function to log out user. (Will destroy the user's token & clear any logged in user)
   const logout = () => {
+    localStorage.removeItem('userInfo')
     dispatch({ type: LOGOUT })
   }
 
