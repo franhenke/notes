@@ -3,11 +3,6 @@ import axios from 'axios'
 import AuthContext from './authContext'
 import authReducer from './authReducer'
 import {
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  USER_LOADED,
-  AUTH_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -17,13 +12,13 @@ import {
 import { loadFromLocal, saveToLocal } from '../../services/localStorage'
 
 const AuthState = ({ children }) => {
-  const userInfoFromStorage = loadFromLocal('userInfo') || null
+  const userInfoFromStorage = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null
 
   const initialState = {
     userInfo: userInfoFromStorage,
-    isAuthenticated: null,
     loading: true,
-    user: null,
     error: null,
   }
 
@@ -34,28 +29,8 @@ const AuthState = ({ children }) => {
 
   useEffect(() => {
     saveToLocal('userInfo', state)
-  }, [])
+  }, [state])
 
-  // // Function to load user. (Will check to see which user is logged in by hitting the auth endpoint to get the user data.)
-  // const loadUser = async () => {
-  //   // Loads token into global headers.
-  //   setAuthToken(localStorage.token)
-
-  //   try {
-  //     const res = await axios.get('/api/auth')
-
-  //     dispatch({
-  //       type: USER_LOADED,
-  //       payload: res.data,
-  //     })
-  //   } catch (err) {
-  //     dispatch({ type: AUTH_ERROR })
-  //   }
-  // }
-
-  // Function to register user. (Will sign the user up for the application and get a token for the user.)
-
-  // Function to log in user. (Will log the user in for the application and get a token for the user.)
   const login = async (email, password) => {
     try {
       dispatch({
@@ -67,18 +42,14 @@ const AuthState = ({ children }) => {
           'Content-Type': 'application/json',
         },
       }
-      const { data } = await axios.post(
-        '/users/login',
-        { email, password },
-        config
-      )
+      const res = await axios.post('/users/login', { email, password }, config)
 
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: data,
+        payload: res.data,
       })
 
-      localStorage.setItem('userInfo', JSON.stringify(data))
+      localStorage.setItem('userInfo', JSON.stringify(res.data))
     } catch (error) {
       dispatch({
         type: LOGIN_FAIL,
@@ -103,7 +74,6 @@ const AuthState = ({ children }) => {
     <AuthContext.Provider
       value={{
         userInfo: state.userInfo,
-        isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
         error: state.error,
