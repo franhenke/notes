@@ -5,7 +5,7 @@ import FormContainer from '../components/FormContainer'
 
 const LoginScreen = ({ location, history }) => {
   const authContext = useContext(AuthContext)
-  const { login, error, userInfo } = authContext
+  const { login, error, clearErrors, userInfo } = authContext
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -14,6 +14,7 @@ const LoginScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (userInfo) {
+      clearErrors()
       history.push(redirect)
     }
   }, [userInfo, history, redirect])
@@ -21,6 +22,7 @@ const LoginScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     login(email, password)
+    clearErrors()
   }
 
   return (
@@ -40,7 +42,9 @@ const LoginScreen = ({ location, history }) => {
           value={password || ''}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="sumit">Login</button>
+        <button className="button-auth" type="sumit">
+          Login
+        </button>
       </form>
 
       <div>

@@ -5,7 +5,7 @@ import FormContainer from '../components/FormContainer'
 
 const RegisterScreen = ({ location, history }) => {
   const authContext = useContext(AuthContext)
-  const { register, error, userInfo } = authContext
+  const { register, error, clearErrors, userInfo } = authContext
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -26,6 +26,7 @@ const RegisterScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else {
+      clearErrors()
       register(name, email, password)
     }
   }
@@ -62,7 +63,7 @@ const RegisterScreen = ({ location, history }) => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         {message && <div>{message}</div>}
-        <button className="button-add" type="sumit">
+        <button className="button-auth" type="sumit">
           Sign Up
         </button>
       </form>

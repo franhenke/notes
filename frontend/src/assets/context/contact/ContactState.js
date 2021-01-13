@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
+import { toast } from 'react-toastify'
 import axios from 'axios'
 import ContactContext from './contactContext'
 import contactReducer from './contactReducer'
@@ -115,6 +116,7 @@ const ContactState = ({ children }) => {
         type: DELETE_CONTACT,
         payload: id,
       })
+      toast.dark('Contact deleted')
     } catch (error) {
       console.error(error.message)
     }

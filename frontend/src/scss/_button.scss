@@ -29,7 +29,7 @@
   border-radius: 10px;
   font-size: 1em;
   padding: 8px 16px;
-  margin-top: 2em;
+  margin: 2em 0 1em;
 
   &:hover {
     color: white;
@@ -60,5 +60,22 @@
 
   a {
     color: $text-light;
+  }
+}
+
+.button-auth {
+  color: #000b14;
+  background: #fcc672;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  width: 100%;
+  padding: 8px 16px;
+  margin: 2em 0 1em;
+
+  &:hover {
+    color: white;
+    background: $text-active;
   }
 }
