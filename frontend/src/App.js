@@ -39,10 +39,10 @@ function App() {
             <Route component={() => 404} />
           </Switch>
           <ToastContainer
-            position="bottom-center"
+            position="top-right"
             autoClose={3000}
             hideProgressBar={false}
-            newestOnTop={false}
+            newestOnTop
             closeOnClick
             rtl={false}
             pauseOnFocusLoss

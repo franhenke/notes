@@ -3,6 +3,9 @@ import axios from 'axios'
 import AuthContext from './authContext'
 import authReducer from './authReducer'
 import {
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -30,6 +33,45 @@ const AuthState = ({ children }) => {
   useEffect(() => {
     saveToLocal('userInfo', state)
   }, [state])
+
+  const register = async (firstName, email, password) => {
+    try {
+      dispatch({
+        type: REGISTER_REQUEST,
+      })
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+      const res = await axios.post(
+        '/users',
+        { firstName, email, password },
+        config
+      )
+
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data,
+      })
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      })
+
+      localStorage.setItem('userInfo', JSON.stringify(res.data))
+    } catch (error) {
+      dispatch({
+        type: REGISTER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      })
+    }
+  }
 
   const login = async (email, password) => {
     try {
@@ -77,6 +119,7 @@ const AuthState = ({ children }) => {
         loading: state.loading,
         user: state.user,
         error: state.error,
+        register,
         login,
         logout,
         clearErrors,
