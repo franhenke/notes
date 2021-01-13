@@ -12,3 +12,9 @@
     border-bottom: 1px solid $text-link__active;
   }
 }
+
+.loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
