@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import ContactContext from '../../assets/context/contact/contactContext'
-import loadingIcon from '../../assets/icons/loading.svg'
 import FavoriteContact from './FavoriteContact'
 import Message from '../UI/Message'
+import LoadingScreen from '../UI/LoadingScreen'
 
 const FavoriteContacts = () => {
   const contactContext = useContext(ContactContext)
@@ -20,15 +20,14 @@ const FavoriteContacts = () => {
       </div>
     )
   }
+  console.log(contacts)
 
   return (
     <div className="favorites">
       <div className="favorite_contact-container">
         <h4>Favorites</h4>
         {loading ? (
-          <div className="loader">
-            <img src={loadingIcon} alt="" />
-          </div>
+          <LoadingScreen />
         ) : error ? (
           <Message variant="danger">{error}</Message>
         ) : (
