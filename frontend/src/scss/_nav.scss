@@ -31,7 +31,6 @@
 
 .nav-text {
   display: flex;
-
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
@@ -52,6 +51,14 @@
   img {
     height: 25px;
     width: 25px;
+  }
+}
+
+.nav-link-logout {
+  margin: 16px 32px;
+
+  a {
+    color: rgb(148, 141, 228);
   }
 }
 

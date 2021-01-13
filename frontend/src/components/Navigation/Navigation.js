@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../../assets/context/auth/authContext'
 import { Link } from 'react-router-dom'
+import * as ROUTES from '../../assets/routes'
 import { SidebarData } from './SidebarData'
 
 const Navigation = () => {
+  const authContext = useContext(AuthContext)
+  const { userInfo, logout } = authContext
   const [sidebar, setSidebar] = useState(false)
 
   const showSidebar = () => setSidebar(!sidebar)
+
+  const logoutHandler = () => {
+    logout()
+  }
 
   return (
     <div className="sidebar-menu">
@@ -32,6 +40,11 @@ const Navigation = () => {
               </li>
             )
           })}
+          <li className="nav-text nav-link-logout">
+            <Link to={ROUTES.LOGIN} onClick={logoutHandler}>
+              Logout
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
