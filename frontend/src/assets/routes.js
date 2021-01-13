@@ -11,3 +11,6 @@ export const EDITDATE = '/dates/edit/:id'
 export const NOTES = '/notes'
 export const ADDNOTE = '/notes/add-note'
 export const EDITNOTE = '/notes/edit/:id'
+
+export const LOGIN = '/login'
+export const REGISTER = '/register'

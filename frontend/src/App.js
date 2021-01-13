@@ -12,6 +12,8 @@ import Navigation from './components/Navigation/Navigation'
 import ContactState from './assets/context/contact/ContactState'
 import ContactsPage from './pages/contactsPage'
 import AuthState from './assets/context/auth/AuthState'
+import LoginScreen from './pages/LoginScreen'
+import RegisterScreen from './pages/RegisterScreen'
 
 function App() {
   return (
@@ -20,9 +22,11 @@ function App() {
         <div className="grid">
           <Navigation />
           <Switch>
+            <Route path={ROUTES.LOGIN} component={LoginScreen} />
+            <Route path={ROUTES.REGISTER} component={RegisterScreen} />
             <Redirect exact from="/" to={ROUTES.HOME} />
             <Route path={ROUTES.HOME} component={Home} exact />
-            <Route path={ROUTES.CONTACTS} component={ContactsPage} exact />
+            <Route path={ROUTES.CONTACTS} component={ContactsPage} />
             <Route path={ROUTES.ADDCONTACT} component={AddContactForm} exact />
             <Route
               path={ROUTES.EDITCONTACT}
