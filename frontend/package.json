@@ -31,10 +31,19 @@
     "react-toastify": "^6.1.0",
     "react-transition-group": "^4.4.1",
     "rsuite": "^4.8.4",
+    "ssri": "^7.1.1",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
     "semantic-ui-react": "^2.0.1",
     "use-immer": "^0.4.1"
+  },
+  "devDependencies": {
+    "postcss": ">=8.2.10",
+    "ssri": ">=7.1.1",
+    "lodash": ">=4.17.21",
+    "hosted-git-info": ">=2.8.9",
+    "url-parse": ">=1.5.0",
+    "ua-parser-js": ">=0.7.24"
   },
   "scripts": {
     "start": "react-scripts start",
